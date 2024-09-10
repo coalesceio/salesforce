@@ -1,0 +1,8 @@
+fileVersion: 1
+id: "123"
+name: SALESFORCE__MANAGER_PERFORMANCE
+steps:
+  - b1ac8e2b-1823-4d30-9af4-3fa603280d59
+  - c2a68e14-41e5-4716-a1cf-4acac057283c
+type: Subgraph
+version: 1
