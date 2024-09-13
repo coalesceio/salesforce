@@ -1,0 +1,70 @@
+fileVersion: 1
+id: 0b5cf7d2-1600-4fc5-8946-e4d4c3412792
+name: WRK_SALESFORCE__LEAD
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 583b6ec6-37d3-465a-94a6-d12af30b886b
+          stepCounter: 0b5cf7d2-1600-4fc5-8946-e4d4c3412792
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5875ef9e-b2cc-4046-89f8-eff1ee4de22a
+                stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+            transform: DATE_TRUNC('DAY', "STG_SALESFORCE__LEAD"."CREATED_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53d90748-062a-4d93-8d68-05af57367f24
+          stepCounter: 0b5cf7d2-1600-4fc5-8946-e4d4c3412792
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LEADS_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 94f689ca-b765-4c23-b333-8c75aebaec85
+                stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+            transform: COUNT("STG_SALESFORCE__LEAD"."LEAD_ID")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SALESFORCE__LEAD: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__LEAD
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'STG_SALESFORCE__LEAD') }} "STG_SALESFORCE__LEAD"
+            GROUP BY 1
+        name: WRK_SALESFORCE__LEAD
+        noLinkRefs: []
+  name: WRK_SALESFORCE__LEAD
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,7 @@
+excludeSelector: ""
+fileVersion: 1
+id: "34"
+includeSelector: "{ location: TARGET name: SALESFORCE__CONTACT_ENHANCED } OR { location: TARGET name: SALESFORCE__DAILY_ACTIVITY } OR { location: TARGET name: SALESFORCE__OPPORTUNITY_ENHANCED } OR { location: TARGET name: SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED } OR { location: TARGET name: SALESFORCE__SALES_SNAPSHOT } OR { location: TARGET name: SALESFORCE__OWNER_PERFORMANCE } OR { location: TARGET name: SALESFORCE__MANAGER_PERFORMANCE }"
+name: SALESFORCE_LOAD
+type: Job
+version: 2

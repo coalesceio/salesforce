@@ -1,0 +1,212 @@
+fileVersion: 1
+id: 6dedba00-34ae-4ec4-8815-677612161d2c
+name: WRK_SALESFORCE__OPPORTUNITY
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b49e664-3eb1-437a-979e-5810d8ee334b
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: OPPORTUNITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 480cdf6c-7de6-4d22-bedb-a6a0c55b7d6f
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5698a7e2-1fb9-4a49-9ba4-ee082bec4fc4
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d14aca27-d590-4b04-b002-1ab5c7940845
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: DATE_TRUNC('DAY', "STG_SALESFORCE__OPPORTUNITY"."CREATED_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bb1ae0d6-7c2c-4fd3-bc1b-112f6d303c02
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a5a9e234-9586-4327-927c-5ac6a1794535
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd548d8b-e924-4a4b-b7fe-634ba14f3dbc
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CLOSE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b1f7515-9c4a-43e0-acb0-116fca851fc2
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: DATE_TRUNC('DAY', "STG_SALESFORCE__OPPORTUNITY"."CLOSE_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 951e8db1-9902-4cc5-ad4d-6e886dc2f306
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_CLOSED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04d24527-b3fe-4c0b-a25b-fa413480c2c6
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2c17183-0bda-44da-9d63-36b7a4b08b80
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1ce2a3b4-6caa-4198-a6a6-4c949707bd24
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76b505f6-4fbd-41b6-b21e-55cf232c6164
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_WON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4850eb98-674d-4e7c-a2c7-f04860ef878e
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 313799b5-604c-4fce-9296-2027aac110cf
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ae9ddcfa-e702-40b6-b2ca-b9f9cda73891
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65d0706c-ce64-48c5-9732-1466cd7a25a6
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STAGE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 73c6986f-7752-49b6-a347-47cc0b7bdf6e
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd8c2cc3-237c-4020-9a79-6e649672ce06
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bd520599-f4af-4c81-af26-910ea4a33ea9
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 430788f0-ea9c-4f86-b4a2-f39faa29ad4c
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3445aff-a230-4980-8735-cea43cfa4484
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d465cafa-f8ce-465b-b609-7ed6c4197b59
+          stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 08d4909f-0946-492a-9fb7-4fb63e3f8f2c
+                stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+            transform: |2-
+                    CASE WHEN  "STG_SALESFORCE__OPPORTUNITY"."IS_WON"  THEN 'Won' WHEN NOT  "STG_SALESFORCE__OPPORTUNITY"."IS_WON"  
+                    AND "STG_SALESFORCE__OPPORTUNITY"."IS_CLOSED" THEN 'Lost' WHEN NOT "STG_SALESFORCE__OPPORTUNITY"."IS_CLOSED" 
+                    AND lower("STG_SALESFORCE__OPPORTUNITY"."FORECAST_CATEGORY") IN (
+                      'pipeline', 'forecast', 'bestcase'
+                    ) THEN 'Pipeline' ELSE 'Other' END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__OPPORTUNITY
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__OPPORTUNITY') }} "STG_SALESFORCE__OPPORTUNITY"
+        name: WRK_SALESFORCE__OPPORTUNITY
+        noLinkRefs: []
+  name: WRK_SALESFORCE__OPPORTUNITY
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,391 @@
+fileVersion: 1
+id: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+name: STG_SALESFORCE__PRODUCT_2
+operation:
+  config:
+    incColumn:
+      columnCounter: d575f1d4-b281-4b0b-aa49-7f1409e37198
+      stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+    insertStrategy: INSERT
+    persistTableLocation: TARGET
+    persistTableName: SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED
+    postSQL: ""
+    preSQL: ""
+    refTable: true
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Represents a product that your company sells.
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d575f1d4-b281-4b0b-aa49-7f1409e37198
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e4e972f-96cf-4217-a1b5-01ba8eb30e7c
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: CAST("PRODUCT_2"."_FIVETRAN_SYNCED" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d33e305-8979-44b2-9c22-38d18866b6d2
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation.
+        name: PRODUCT_2_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0be799f-ad87-403d-a62e-8e745cea3dcc
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Created By ID
+        name: CREATED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9491b1bd-fef3-4290-9027-63fc6060f258
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5bf1e55-2c2a-400c-853c-939d7168dc0c
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Created Date
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c1f8435-8d00-4e3f-9308-487ea0761629
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: CAST("PRODUCT_2"."CREATED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e031027-8c5b-4fab-a494-19f815a3b89b
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: A text description of this record. Label is Product Description.
+        name: PRODUCT_2_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b0977d34-f498-4adf-9e05-60c385ff9ef3
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06019d78-9b7b-4af4-b57d-f84e994ac846
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: URL leading to a specific version of a record in the linked external data source.
+        name: DISPLAY_URL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef6c6632-f2a2-4ba9-8d08-bdbdd0943199
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 146fff8d-faa6-4c9f-a513-0f76e6473cc6
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique identifier of a record in the linked external data source. For example, ID
+        name: EXTERNAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e0c62d6-f3f7-4548-95ef-cb447b4cd465
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ecdaf38-f8ac-4289-af1f-56a8c5f7ecec
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Name of the product family associated with this record. Product families are configured as picklists in the user interface. To obtain a list of valid values, call describeSObjects() and process the DescribeSObjectResult for the values associated with the Family field. Label is Product Family.
+        name: FAMILY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cfe705d0-0c56-45d8-909d-8f926a10409c
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8c19ae5-6fa3-49e4-a179-ab1e9532dc22
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether this record is active (true) or not (false). Inactive Product2 records are hidden in many areas in the user interface. You can change the IsActive flag on a Product2 object as often as necessary. Label is Active.
+        name: IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9de79d3b-91e7-4e87-9146-25ad3d695d01
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: edd86cd0-d9d8-492f-aa28-812376017a54
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: BOOLEAN
+        description: Describes whether the product is archived. The default value is false.
+        name: IS_ARCHIVED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 37b8dc02-7b41-404b-a5cb-ad3c21adc021
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3db32151-d33f-46cb-8fc8-7b8b66498ed1
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the object has been moved to the Recycle Bin (true) or not (false). Label is Deleted.
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d391e18-0a21-45a0-a57a-012145d7c0d0
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fa6691a2-735f-4d57-958b-0aa7e7228121
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Last Modified By ID
+        name: LAST_MODIFIED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 62e0d901-8918-4696-a7ce-b7e137ef0089
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8756db8a-b882-4aec-882d-446feb82a6c0
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Last Modified Date
+        name: LAST_MODIFIED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e1dd5e7-3521-4f1f-b26b-1afc75917904
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: CAST("PRODUCT_2"."LAST_MODIFIED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d5c9d56-af5d-4d12-b484-0806cf5aaac7
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last accessed this record, a record related to this record, or a list view.
+        name: LAST_REFERENCED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 989c4c0b-12bf-41a7-b5e4-0f2eb92ec90b
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: CAST("PRODUCT_2"."LAST_REFERENCED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2208388-3fc4-424a-a858-674b0fa5b2ca
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last viewed this record or list view. If this value is null, the user might have only accessed this record or list view (LastReferencedDate) but not viewed it.
+        name: LAST_VIEWED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc89d702-61b1-4e0c-b594-afdaf878b379
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: CAST("PRODUCT_2"."LAST_VIEWED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a631ebb4-d19a-4ea7-a4a0-793d445776be
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. Default name of this record. Label is Product Name.
+        name: PRODUCT_2_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90891344-d058-4dca-9efa-eaba1a948462
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 846eaa3a-a0d3-4816-bc40-37664fbbe841
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: If the product has a quantity schedule, the number of installments.
+        name: NUMBER_OF_QUANTITY_INSTALLMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5084bc9-76cd-4d82-87a8-13b8ba44cf6f
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: If the product has a revenue schedule, the number of installments.
+        name: NUMBER_OF_REVENUE_INSTALLMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 08fe5cc6-c7c4-4b36-b56b-6fe936aa8e4f
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Default product code for this record. Your org defines the product code naming pattern.
+        name: PRODUCT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b52e68c4-6607-470e-96bd-37a4f941a5fd
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5530f4e1-ae4b-41a1-b85a-c7648fcbd7e3
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If the product has a quantity schedule, the amount of time covered by the schedule.
+        name: QUANTITY_INSTALLMENT_PERIOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 373e27b5-0156-4ea7-8a91-feeabc8e0ae9
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The type of the quantity schedule, if the product has one.
+        name: QUANTITY_SCHEDULE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7bad9a8e-fa71-44e5-9f05-c09cd463fde6
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unit of the product; for example, kilograms, liters, or cases. This field comes with only one value, Each, so consider creating your own. The QuantityUnitOfMeasure field on ProductItem inherits this field’s values.
+        name: QUANTITY_UNIT_OF_MEASURE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad509e83-a5fd-48b5-9ec0-9429232bdf31
+                stepCounter: 7ef7883a-117c-460d-828e-f865ebb85e10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: faaca755-de95-4c61-88b2-59f4ca572dcd
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the record type assigned to this object.
+        name: RECORD_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0644443-30a1-47d2-ba61-b11b2539eb16
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If the product has a revenue schedule, the time period covered by the schedule.
+        name: REVENUE_INSTALLMENT_PERIOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fee93ebf-60ba-46d4-9556-97b19f8c4370
+          stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The type of the revenue schedule, if the product has one.
+        name: REVENUE_SCHEDULE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          PRODUCT_2: 7ef7883a-117c-460d-828e-f865ebb85e10
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: PRODUCT_2
+        join:
+          joinCondition: |-
+            FROM {{ ref('SOURCE', 'PRODUCT_2') }}
+            WHERE COALESCE(CAST(NULL AS boolean),TRUE)
+            AND NOT COALESCE(is_deleted,FALSE)
+            AND "PRODUCT_2"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED_PRODUCT"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED') }} )
+        name: STG_SALESFORCE__PRODUCT_2
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED
+  name: STG_SALESFORCE__PRODUCT_2
+  overrideSQL: false
+  schema: ""
+  sqlType: INC:::230
+  type: sql
+  version: 1
+type: Node

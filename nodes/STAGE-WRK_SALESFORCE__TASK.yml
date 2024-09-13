@@ -1,0 +1,70 @@
+fileVersion: 1
+id: 2c69bb66-40a6-42ca-86e9-d606f5d39b0b
+name: WRK_SALESFORCE__TASK
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a0205fe-8c8d-4b59-815f-10f281d1135e
+          stepCounter: 2c69bb66-40a6-42ca-86e9-d606f5d39b0b
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f4764bde-5350-45a2-9dea-59b9aeddebe6
+                stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+            transform: DATE_TRUNC('DAY',"PSTG_SALESFORCE__TASK"."ACTIVITY_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a274b28-bece-4bf0-b275-65b25e4e6fca
+          stepCounter: 2c69bb66-40a6-42ca-86e9-d606f5d39b0b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TASKS_COMPLETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dbe97523-508c-401c-be8d-f5e4b9bf4993
+                stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+            transform: COUNT("PSTG_SALESFORCE__TASK"."TASK_ID")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_SALESFORCE__TASK: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_SALESFORCE__TASK
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_SALESFORCE__TASK') }} "PSTG_SALESFORCE__TASK"
+            GROUP BY 1
+        name: WRK_SALESFORCE__TASK
+        noLinkRefs: []
+  name: WRK_SALESFORCE__TASK
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::188
+  type: sql
+  version: 1
+type: Node

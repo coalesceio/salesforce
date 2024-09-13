@@ -1,0 +1,467 @@
+fileVersion: 1
+id: 4dca8e3d-9df3-416f-90f6-a16613958618
+name: STG_SALESFORCE__USER
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16885f58-037f-4e1b-a46f-d9916a039e49
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: BOOLEAN
+        description: True, if this field has been deleted
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: adc8769b-9d7d-497b-be66-193ca8835bf8
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92db32a3-59e7-40b2-b55c-ab29fd1b3a04
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 408bacd8-5acc-4edd-b07c-377bd228517c
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: CAST("WRK_STG_SALESFORCE__USER"."_FIVETRAN_SYNCED" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: acf1ebf6-d3fb-4d0b-b20c-e40b727740b7
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the Account associated with a Customer Portal user. This field is null for Salesforce users.
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7429bbcf-d08c-4ba9-a84e-542301c77974
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6707d1f7-6f14-416b-838a-ca0032276dfb
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. The user’s alias. For example, jsmith.
+        name: ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19787421-4d9f-441b-b663-3e483b2f60b3
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b92d010-bf79-48a7-aef7-55d075346e6e
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The city associated with the user. Up to 40 characters allowed.
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8878f753-8485-461b-8b44-22105b586368
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a259b892-72d6-444b-88c4-92a6ec675ba5
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The name of the user’s company.
+        name: COMPANY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df50487b-45da-40ba-b4a7-f22be75393fd
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 269323af-6297-464c-9115-d3708f7f5b06
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the Contact associated with this account. The contact must have a value in the AccountId field or an error occurs.
+        name: CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39fbb540-cb51-4b9c-8a71-52579ed324b5
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77af7e96-17bf-458f-8e63-e4893be83f56
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The country associated with the user.
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 053f23b1-b508-4f2d-a67c-559ef5e19ceb
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8166b530-5f7e-4cae-971d-5718f9ce3bdb
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ISO country code associated with the user.
+        name: COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 774f34a2-e389-4704-8c5e-0cb7153c7fe4
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d365e40b-d5b2-4e46-86fa-6306f468c443
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The company department associated with the user.
+        name: DEPARTMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f9199915-8adf-49f4-a677-6f5699868207
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee5f416f-bf4e-424b-bb7a-a924eb9a73a3
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. The user’s email address.
+        name: EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6d9c8fd-f7e9-431e-af92-32adc63d665a
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: feb511d2-c91e-4b22-8df9-d8b15b148a73
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The user’s first name.
+        name: FIRST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 777e7d53-a39d-442c-9720-48e67cc731b6
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32844e0a-9292-48e3-89bc-5aacf3891355
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation.
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 05343431-9060-4bea-a93f-1c55101b52da
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b44d97ce-49ff-4968-995a-77a76aaedf35
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the data privacy record associated with this user. This field is available if Data Protection and Privacy is enabled.
+        name: INDIVIDUAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e5f4e1a4-f858-43fb-b590-7ae5c2d4eaa4
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6adb5408-dd80-47a6-8fb0-ab9eca0a59b1
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the user has access to log in (true) or not (false).
+        name: IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b5356e7-609f-4dd2-96be-e374cb9cca3c
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13493b83-1284-46d9-83eb-9895015d6bd7
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The date and time when the user last successfully logged in. This value is updated if 60 seconds have elapsed since the user’s last login.
+        name: LAST_LOGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32386178-fe93-4e51-ac30-353943dc6a68
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: CAST("WRK_STG_SALESFORCE__USER"."LAST_LOGIN_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2cb9a74-114c-41d2-a150-18f021e8a1ce
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. The user’s last name.
+        name: LAST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 06c040bf-0bf2-4a97-b321-937054c76f24
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a097f08a-42ac-44f6-8f77-f9eec37acf07
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp for when the current user last viewed a record related to this record.
+        name: LAST_REFERENCED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6476d32-cbc5-4da9-98da-195764871143
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: CAST("WRK_STG_SALESFORCE__USER"."LAST_REFERENCED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35129f8f-297c-4819-ae91-8dc8511ef4e4
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp for when the current user last viewed this record. If this value is null, this record might only have been referenced (LastReferencedDate) and not viewed.
+        name: LAST_VIEWED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b7d57911-4be5-4f13-bd38-51fe27a47014
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: CAST("WRK_STG_SALESFORCE__USER"."LAST_VIEWED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a08b15b8-bc29-4962-9445-ad12b70a635b
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The Id of the user who manages this user.
+        name: MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c50f138-8b38-46ec-a349-81b82de02e79
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c853400-98d0-464c-a800-fcf92e89c6c5
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Concatenation of FirstName and LastName.
+        name: USER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49c5f4cf-d21b-4377-87f5-df7ad6c07217
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2667cb5-2017-4c15-96b7-1eab8a9c85a4
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The user’s postal or ZIP code.
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 69a6af90-b777-4fab-b845-54433b979ab4
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f576f16-d5f6-47cf-9d3f-4950a2cae1f6
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. ID of the user’s Profile. Use this value to cache metadata based on profile. In earlier releases, this was RoleId.
+        name: PROFILE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f85a6ee6-aac1-48cc-9e33-4de62980084c
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c50fe86-8510-430c-94b8-62f17613f594
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The state associated with the User.
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b877ed5-4c32-490d-a688-e130676cdb67
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a7a3867-f74e-4179-922b-b316bfa1f218
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ISO state code associated with the user.
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71201d9f-f69f-4791-a4a8-56c965d71570
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 598404ca-8c08-4b9d-99d7-9750b6224f23
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The street address associated with the User.
+        name: STREET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 059aa639-f6b4-4534-991b-1cd8e37cc6a3
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f20eaa78-c395-4d56-8bff-db9b90bdcedd
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The user’s business title, such as “Vice President.”
+        name: TITLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ea9226a4-85ed-4d74-8638-eb8a384ecf92
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb55f507-507b-4735-bedc-b1c9eb61b13a
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the user’s UserRole.
+        name: USER_ROLE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 971e5f1e-84d3-4cc6-9f23-b4ca82f64d83
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a670e338-8db8-400b-a933-7f7371da707c
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The category of user license.
+        name: USER_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 47140eb9-3a08-4f78-bfbe-8fc0aa7c1112
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bde214b-d608-4ad4-b088-6dc12f139492
+          stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Contains the name that a user enters to log in. The value for this field must be in the form of an email address, using all lowercase characters. It must also be unique across all organizations.
+        name: USERNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e04934ea-c023-499a-a312-e498c76d5b8a
+                stepCounter: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          WRK_STG_SALESFORCE__USER: b1ac8e2b-1823-4d30-9af4-3fa603280d59
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: WRK_STG_SALESFORCE__USER
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'WRK_STG_SALESFORCE__USER') }} "WRK_STG_SALESFORCE__USER"
+            WHERE
+            	COALESCE(CAST(NULL AS boolean),
+            	TRUE)
+        name: STG_SALESFORCE__USER
+        noLinkRefs: []
+  name: STG_SALESFORCE__USER
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

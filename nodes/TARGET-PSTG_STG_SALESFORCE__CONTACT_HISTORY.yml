@@ -1,0 +1,336 @@
+fileVersion: 1
+id: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+name: PSTG_STG_SALESFORCE__CONTACT_HISTORY
+operation:
+  config:
+    groupByAll: false
+    insertStrategy: UNION ALL
+    orderby: false
+    orderbycolumn:
+      items:
+        - {}
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9af4985-77d9-444c-b519-2631b397f0f8
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_STG_SALESFORCE__CONTACT_HISTORY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b509268-bf44-47f2-b898-acbea5d3855b
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: VARCHAR(18)
+        description: The unique, system-generated ID assigned during creation.
+        name: CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ea3a720b-2fe7-4467-a43e-3e0e5d2cf1f7
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68c82d2f-0812-4191-b739-aefdc68730da
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time when the record was first created or modified in the source, based on a timestamp value in the source table that monotonically increases over time with data change or update.
+        name: _FIVETRAN_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a97803a7-8112-4ca3-a4fd-56328b79f0d1
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4470d66d-59a9-432c-811d-400bb46bb7e5
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time until which the record was active minus epsilon, where epsilon is the smallest time difference that can be stored in the timestamp type value.
+        name: _FIVETRAN_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ba88543d-89e5-4cf3-8765-f5a74fcb047c
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75f3be8a-407c-4991-b1eb-a7f2bfed3c66
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: DATE
+        description: The date when the record was first created or modified in the source, based on a timestamp value in the source table that monotonically increases over time with data change or update.
+        name: _FIVETRAN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 964b1c17-4e02-465e-a0e2-601e84aeaeb2
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e16b760f-a280-4773-8760-7045963d02d3
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: STRING
+        description: Surrogate key hashed on `_fivetran_start` and `contact_id`.
+        name: HISTORY_UNIQUE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 979ed874-6be0-4d48-8ef8-f4d46025fcc7
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75d1eb98-407b-4223-9620-4979027e9246
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the object has been moved to the Recycle Bin (true) or not (false). Label is Deleted.
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d0d77569-9399-4b4d-ab76-46e90adb6308
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e0b24de5-09ee-4f05-a480-728598773b4c
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: VARCHAR(18)
+        description: ""
+        name: CREATED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c10d0bd6-3fef-48b0-954e-4b608a14c174
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 210e1289-9815-4593-a1da-c03d9794a03b
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 31b5ec3e-fe49-469c-a5c0-66d201222200
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 957e5bd8-5403-47be-96af-20ea9dde6a50
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: VARCHAR(765)
+        description: ""
+        name: FIELD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aafd4930-ba4e-4b72-a9b8-9ec9868caa98
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64d8e10a-f1e8-4eed-97f2-3e5e99cf8e32
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: VARCHAR(120)
+        description: ""
+        name: DATA_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c33eb769-bdf8-40d3-87c2-bee5166122c7
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4976ad99-ca27-4a11-b04c-1ae91cdf91c9
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: VARCHAR(765)
+        description: ""
+        name: OLD_VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8daa2fdd-25c7-454d-ade1-8d0f4997beff
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00fb12ec-ad95-4341-bba9-f7b331f83ce8
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: VARCHAR(765)
+        description: ""
+        name: NEW_VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cb5bc764-418c-468c-9b56-902707965bb3
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c811f0af-426c-40ce-84d7-e0980500d3dd
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 337c6320-4312-411a-a2b5-ae35afa79b88
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fc667bed-c21d-4e8a-9e6f-beea326eb97d
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: The time at which fivetran last synced this record.
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b040e246-7a2b-4880-85d8-b6488c49bf0d
+                stepCounter: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b27aeaa-23f3-4a0a-8f29-a4ef2493bf98
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 354ef1e5-79ce-4e72-b297-3be492e2d425
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b16bf21a-55ae-42cc-b853-d4beda4f2d9b
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e3499cb-1e4a-4512-8112-00c74869b5d8
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d24a9a32-271a-4446-9734-64c822093bbd
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9beed0f6-0c0c-4b5d-9b79-71e94d758a2f
+          stepCounter: 96dfa561-fa78-4ef5-956a-e1178d20fb39
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__CONTACT_HISTORY
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__CONTACT_HISTORY') }} "STG_SALESFORCE__CONTACT_HISTORY"
+        name: PSTG_STG_SALESFORCE__CONTACT_HISTORY
+        noLinkRefs: []
+  name: PSTG_STG_SALESFORCE__CONTACT_HISTORY
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

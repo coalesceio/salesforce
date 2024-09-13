@@ -1,0 +1,500 @@
+fileVersion: 1
+id: be03d272-09ed-4a94-80b4-690c2d6cb64a
+name: SALESFORCE__SALES_SNAPSHOT
+operation:
+  config:
+    groupByAll: false
+    insertStrategy: UNION
+    orderby: false
+    postSQL: null
+    preSQL: null
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aace68b7-8dce-4e9e-81ca-b5a2d3a4542e
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: PIPELINE_CREATED_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bb016df7-d931-4c26-84c4-9dd15f6e755c
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Pipeline' THEN "SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_AMOUNT_THIS_MONTH" ELSE NULL END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4eeedde4-0139-4d07-885a-808670df268c
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: PIPELINE_CREATED_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81b9d852-4e9a-4ab6-b424-3459db79a954
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Pipeline' THEN "SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_AMOUNT_THIS_QUARTER" ELSE NULL END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf3a6434-d5a7-48cd-8f43-7e606c929499
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: PIPELINE_CREATED_FORECAST_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bb016df7-d931-4c26-84c4-9dd15f6e755c
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: (SUM(CASE WHEN STATUS = 'Pipeline' THEN CREATED_AMOUNT_THIS_MONTH * PROBABILITY ELSE NULL END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be870c9b-a11e-49a0-8a10-5a7dc06745f0
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: PIPELINE_CREATED_FORECAST_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81b9d852-4e9a-4ab6-b424-3459db79a954
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Pipeline' THEN "SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_AMOUNT_THIS_QUARTER"* PROBABILITY ELSE 0 END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ea41869b-eed3-4e6c-9341-49dbe85f3035
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(11,6)
+        description: ""
+        name: PIPELINE_COUNT_CREATED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90ba8062-e935-4c74-83b9-12f7052751fe
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM(CASE WHEN STATUS = 'Pipeline' THEN CREATED_COUNT_THIS_MONTH ELSE 0 END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cadcc662-8c8b-4ec6-8fb2-7f092e6eacbf
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(11,6)
+        description: ""
+        name: PIPELINE_COUNT_CREATED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da015555-6fa8-40a5-97fd-99a40adf51b2
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: |-
+              SUM(CASE WHEN STATUS = 'Pipeline' THEN 
+               CREATED_COUNT_THIS_QUARTER ELSE 0 END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b5cff9e-da3c-44da-a75b-25598f80ec2f
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: TOTAL_NUMBER_PIPELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(CASE WHEN STATUS = 'Pipeline' THEN 1 ELSE NULL END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 028a837c-77b9-4647-bcad-fb0f8ec2eca5
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: TOTAL_PIPELINE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Pipeline' THEN "SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT"  ELSE 0 END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bb2d6e6-5b68-42f1-950d-4783af670f14
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: TOTAL_PIPELINE_FORECAST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Pipeline' THEN "SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT"* PROBABILITY  ELSE 0 END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2c96ee1-a5aa-471b-b065-e6e41322ad9f
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: AVG_PIPELINE_OPP_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(AVG(CASE WHEN STATUS = 'Pipeline' THEN AMOUNT  ELSE NULL END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7d29484-aa7c-4996-9d80-4ae673fa8497
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: LARGEST_DEAL_IN_PIPELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: MAX(CASE WHEN STATUS = 'Pipeline' THEN AMOUNT  ELSE 0 END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ca572ec-829e-43b5-ad23-9a8966698c6e
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: AVG_DAYS_OPEN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 95363233-0753-473a-82d5-c46d93da3862
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: AVG(CASE WHEN STATUS = 'Pipeline' THEN DAYS_SINCE_CREATED  ELSE NULL END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5cae05d2-ddfc-4c6c-a9bd-14ffa3b04998
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: BOOKINGS_AMOUNT_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d41cc0b-c893-41cb-a5b7-26ccbc4964c2
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: |-
+              ROUND(SUM(CASE WHEN STATUS = 'Won' THEN 
+               CLOSED_AMOUNT_THIS_MONTH  ELSE 0 END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94f0fb4e-6a3f-4df2-8040-23786f5d66bb
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: BOOKINGS_AMOUNT_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3afca50e-50b7-47e2-b586-4894355f9583
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Won' THEN CLOSED_AMOUNT_THIS_QUARTER ELSE 0 END))
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13b24861-f3e7-452d-b4b5-a453da8ef33a
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: TOTAL_NUMBER_BOOKINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(CASE WHEN STATUS = 'Won' THEN 1 ELSE NULL END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8178caba-9926-404c-a309-8d1386902fd9
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: TOTAL_BOOKINGS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Won' THEN AMOUNT ELSE 0 END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 395a0741-6d15-4a65-bb62-591090b8c82d
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(11,6)
+        description: ""
+        name: BOOKINGS_COUNT_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c606646-a152-4c48-ba40-7ad1235f447d
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM(CASE WHEN STATUS = 'Won' THEN CLOSED_COUNT_THIS_MONTH ELSE 0 END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d570a905-39d9-470e-b097-6d77be07298c
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(11,6)
+        description: ""
+        name: BOOKINGS_COUNT_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a662bad-75a5-4c16-8a4f-931a2cf39bfc
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM(CASE WHEN STATUS = 'Won' THEN CLOSED_COUNT_THIS_QUARTER  ELSE 0 END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91d4b16c-c54a-42a9-9831-e47175c937f8
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: AVG_BOOKINGS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(AVG(CASE WHEN STATUS = 'Won' THEN AMOUNT  ELSE NULL END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eee23263-5db4-4307-8c25-794191c6420d
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: LARGEST_BOOKING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: MAX(CASE WHEN STATUS = 'Won' THEN AMOUNT  ELSE 0 END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29d433e3-b8a5-4b31-98ab-a644a98a2179
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(9,6)
+        description: ""
+        name: AVG_DAYS_TO_CLOSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e6a4832-e70c-44d1-aae7-b9aeaa13bb4a
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: AVG(CASE WHEN STATUS = 'Won' THEN DAYS_TO_CLOSE ELSE NULL END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5f748cf-8eef-4ece-9a3a-ca73b0b9e253
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: LOST_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d41cc0b-c893-41cb-a5b7-26ccbc4964c2
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: |-
+              ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN 
+               CLOSED_AMOUNT_THIS_MONTH  ELSE 0 END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 34900661-ea1c-45f0-8c36-4477703891a8
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: LOST_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3afca50e-50b7-47e2-b586-4894355f9583
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN CLOSED_AMOUNT_THIS_QUARTER ELSE 0 END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c4f02d0-0523-44ba-8715-2fe927e83581
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: INT
+        description: ""
+        name: TOTAL_NUMBER_LOST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(CASE WHEN STATUS = 'Lost' THEN 1 ELSE NULL END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ab8a977-c4d3-4cf1-8965-169159d11748
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: TOTAL_LOST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN AMOUNT  ELSE NULL END))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17749b0a-49de-43e2-bf5f-97b7f18b19ba
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(11,6)
+        description: ""
+        name: LOST_COUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c606646-a152-4c48-ba40-7ad1235f447d
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM(CASE WHEN STATUS = 'Lost' THEN CLOSED_COUNT_THIS_MONTH ELSE 0 END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba78824b-aac3-4d4c-bf72-33cb5b622c58
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(11,6)
+        description: ""
+        name: LOST_COUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a662bad-75a5-4c16-8a4f-931a2cf39bfc
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM(CASE WHEN STATUS = 'Lost' THEN CLOSED_COUNT_THIS_QUARTER  ELSE 0 END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b16d1ca-67a7-4911-bc3e-de12b6a55725
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: WIN_PERCENT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+                  case 
+                      when (ROUND(SUM(CASE WHEN STATUS = 'Won' THEN 
+               CLOSED_AMOUNT_THIS_MONTH  ELSE 0 END)) + ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN 
+               CLOSED_AMOUNT_THIS_MONTH  ELSE 0 END))) = 0 then null
+                      else round( (ROUND(SUM(CASE WHEN STATUS = 'Won' THEN 
+               CLOSED_AMOUNT_THIS_MONTH  ELSE 0 END)) / (ROUND(SUM(CASE WHEN STATUS = 'Won' THEN 
+               CLOSED_AMOUNT_THIS_MONTH  ELSE 0 END)) + ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN 
+               CLOSED_AMOUNT_THIS_MONTH  ELSE 0 END))) ) * 100, 2 )
+                  end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf3bd5b3-4553-4457-b53d-e34d41d81bfd
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: WIN_PERCENT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              	case 
+                      when (ROUND(SUM(CASE WHEN STATUS = 'Won' THEN CLOSED_AMOUNT_THIS_QUARTER ELSE 0 END)) + ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN CLOSED_AMOUNT_THIS_QUARTER ELSE 0 END))) = 0 then null
+                      else round( (ROUND(SUM(CASE WHEN STATUS = 'Won' THEN CLOSED_AMOUNT_THIS_QUARTER ELSE 0 END)) / (ROUND(SUM(CASE WHEN STATUS = 'Won' THEN CLOSED_AMOUNT_THIS_QUARTER ELSE 0 END)) + ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN CLOSED_AMOUNT_THIS_QUARTER ELSE 0 END))) ) * 100, 2 ) 
+                  end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69a308f4-ff3a-4b7b-8432-f20410692641
+          stepCounter: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: TOTAL_WIN_PERCENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              
+                  CASE WHEN (
+                    ROUND(SUM(CASE WHEN STATUS = 'Won' THEN AMOUNT ELSE 0 END)) + ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN AMOUNT  ELSE NULL END))
+                  ) = 0 THEN NULL ELSE round(
+                    (
+                      ROUND(SUM(CASE WHEN STATUS = 'Won' THEN AMOUNT ELSE 0 END)) / (
+                        ROUND(SUM(CASE WHEN STATUS = 'Won' THEN AMOUNT ELSE 0 END)) + ROUND(SUM(CASE WHEN STATUS = 'Lost' THEN AMOUNT  ELSE NULL END))
+                      )
+                    ) * 100, 
+                    2) END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALESFORCE__OPPORTUNITY_ENHANCED: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OPPORTUNITY_ENHANCED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALESFORCE__OPPORTUNITY_ENHANCED') }} "SALESFORCE__OPPORTUNITY_ENHANCED"
+        name: SALESFORCE__SALES_SNAPSHOT
+        noLinkRefs: []
+  name: SALESFORCE__SALES_SNAPSHOT
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

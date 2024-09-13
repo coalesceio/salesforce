@@ -1,0 +1,151 @@
+fileVersion: 1
+id: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+name: INT_SALESFORCE__DATE_SPINE
+operation:
+  config:
+    dateColumnName: "\"DATE_COL\""
+    daysToGenerate: "10000"
+    postSQL: ""
+    preSQL: ""
+    startingDate: |-
+      /*(select coalesce(greatest(max(cast(created_date as date)), cast(current_date as date)),cast(current_date as date)) as max_date from {{ ref('STAGE', 'STG_SALESFORCE__LEAD') }} */
+      
+      '2022-01-14'
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73a3f2d8-ebc6-4b7d-8e88-5861d4087c64
+          stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: DATE_DAY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "{{ config.dateColumnName }}"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 99575acc-c4fc-47c8-bd6f-a29226e17271
+          stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: ""
+        name: YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: YEAR({{ config.dateColumnName }})
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29390273-2b12-450f-8f04-2e5361ba3834
+          stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: ""
+        name: MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MONTH({{ config.dateColumnName }})
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57983dd8-fe81-46bf-a66d-947334c39bbc
+          stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+        config: {}
+        dataType: CHAR(3)
+        defaultValue: ""
+        description: ""
+        name: MONTH_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MONTHNAME({{ config.dateColumnName }})
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60171f66-5bc0-45ea-ad62-c8224bd89bfd
+          stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: ""
+        name: DAY_OF_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DAY({{ config.dateColumnName }})
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 03dd4ac2-969c-4982-834b-9775456e9a09
+          stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+        config: {}
+        dataType: VARCHAR(9)
+        defaultValue: ""
+        description: ""
+        name: DAY_OF_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DAYOFWEEK({{ config.dateColumnName }})
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01236417-f46a-4656-b9dc-cd3ef397d47b
+          stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: ""
+        name: WEEK_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: WEEKOFYEAR({{ config.dateColumnName }})
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 54e7ca90-b85d-4598-b45a-dc23808cc4aa
+          stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: ""
+        name: DAY_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DAYOFYEAR({{ config.dateColumnName }})
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_SALESFORCE__LEAD: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__LEAD
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__LEAD') }}
+        name: INT_SALESFORCE__DATE_SPINE
+        noLinkRefs: []
+  name: INT_SALESFORCE__DATE_SPINE
+  overrideSQL: false
+  schema: ""
+  sqlType: "327"
+  type: sql
+  version: 1
+type: Node

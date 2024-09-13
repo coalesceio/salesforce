@@ -1,0 +1,160 @@
+fileVersion: 1
+id: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+name: STG_SALESFORCE__USER_ROLE
+operation:
+  config:
+    groupByAll: false
+    insertStrategy: INSERT
+    orderby: false
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 458dbd0e-8da8-43c4-8433-295523217d34
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: BOOLEAN
+        description: True, if this field has been deleted
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 64bd1a7b-e498-40d5-919b-a2f350200862
+                stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18d3060d-628b-49e1-abfa-4fb8fdbd9751
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ff945285-fa36-415a-a898-b56247daa061
+                stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+            transform: CAST("WRK_STG_SALESFORCE__USER_ROLE"."_FIVETRAN_SYNCED" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5eee1853-74ec-4193-b287-200a16eab40f
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique name of the object in the API.
+        name: DEVELOPER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d446e77e-6e2f-45df-ada4-ebb728692aa3
+                stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d0f4f6b-2844-45cf-a635-214f993a7aaa
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation
+        name: USER_ROLE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 521378e3-575f-4f46-a656-aeb038a4d44a
+                stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed841079-16ae-4277-89a5-3431b01a00a4
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. Name of the role. Corresponds to Label on the user interface.
+        name: USER_ROLE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a9ec23c-4178-439b-8faa-b01c61cd5572
+                stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90293af5-71e1-4542-b22e-0795c044a1d7
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. The opportunity access level for the account owner.
+        name: OPPORTUNITY_ACCESS_FOR_ACCOUNT_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d8857d0-5554-41df-9236-ca04e430f5ff
+                stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5cb74732-3a7f-46dd-ad44-7bc823cc71b1
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ID of the parent role.
+        name: PARENT_ROLE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 136de293-e13e-4634-9227-d4c985e6876d
+                stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6a8c1d9-8919-4ce9-a1a6-4ab37ef1aee3
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Description of the forecast rollup.
+        name: ROLLUP_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 40225643-6950-4150-8fb6-4350b9f2905a
+                stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          WRK_STG_SALESFORCE__USER_ROLE: c2a68e14-41e5-4716-a1cf-4acac057283c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: WRK_STG_SALESFORCE__USER_ROLE
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'WRK_STG_SALESFORCE__USER_ROLE') }} "WRK_STG_SALESFORCE__USER_ROLE"
+            WHERE COALESCE(CAST(NULL AS boolean),TRUE)
+        name: STG_SALESFORCE__USER_ROLE
+        noLinkRefs: []
+  name: STG_SALESFORCE__USER_ROLE
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

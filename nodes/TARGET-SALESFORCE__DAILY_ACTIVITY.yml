@@ -1,0 +1,229 @@
+fileVersion: 1
+id: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+name: SALESFORCE__DAILY_ACTIVITY
+operation:
+  config:
+    groupByAll: false
+    insertStrategy: INSERT
+    orderby: false
+    orderbycolumn:
+      items:
+        - {}
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Each record represents a daily summary of the number of sales activities, for example tasks and opportunities closed.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47aabe6a-3d72-4ad6-81ef-893762928f07
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: DATE
+        description: Day of event, in UTC.
+        name: DATE_DAY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 73a3f2d8-ebc6-4b7d-8e88-5861d4087c64
+                stepCounter: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07717ee1-e800-4829-beec-2881b7a7c88d
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Number of opportunities created on that date.
+        name: OPPORTUNITIES_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6628fce8-82d0-43d7-a7fb-46f192365ff1
+                stepCounter: a84bf568-ed98-4763-9d8e-1720da26c698
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6290d14-0cf2-4781-81cb-1cff61577c9a
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The dollar amount of all opportunities created for this day.
+        name: OPPORTUNITIES_CREATED_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fd9daeea-9975-441f-aa0b-a0c62304d8a9
+                stepCounter: a84bf568-ed98-4763-9d8e-1720da26c698
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d70b624b-7f11-44f8-851c-44ad176b18af
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Number of opportunities won on that close date.
+        name: OPPORTUNITIES_WON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f34b4e3c-05ac-4b45-82cb-e1c6023f1c33
+                stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 62287f66-d2df-4616-acc0-2c56cbdddc24
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The dollar amount of all opportunities won for this day.
+        name: OPPORTUNITIES_WON_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4d28eedb-d262-46df-95f5-7130e6473b87
+                stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd5f12fc-441f-4cb3-8f0b-53c7c0d3a9fc
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Number of opportunities lost on that close date.
+        name: OPPORTUNITIES_LOST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 56b055cb-2678-4ecf-aa1e-8d7304d7e883
+                stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: afe2b96e-0bcd-46e7-a163-e58b5d4e09b0
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The dollar amount of all opportunities lost for this day.
+        name: OPPORTUNITIES_LOST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 774f2814-e7be-4c58-b4f7-16c82aa96c56
+                stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2164fb4-ffc3-45cf-b6b2-b807abc5f45b
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The dollar amount of all opportunities in the pipeline for this day.
+        name: PIPELINE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 69781d84-7623-4d9b-986e-dd44668228c0
+                stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 072d3a25-73e9-4d1e-922f-a570cd3c4905
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Number of leads created on that date.
+        name: LEADS_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53d90748-062a-4d93-8d68-05af57367f24
+                stepCounter: 0b5cf7d2-1600-4fc5-8946-e4d4c3412792
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca221b85-207e-42a0-9c1f-fbfc115bfa6e
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Number of leads converted on that date.
+        name: LEADS_CONVERTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f48517df-983c-4fed-aeb7-af7a10d4d1d6
+                stepCounter: f16a43ba-7a81-442d-90ac-32ac88be129e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c284e773-08b6-4247-8ccd-734d7e57c3b5
+          stepCounter: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Number of events for that activity date.
+        name: EVENTS_COMPLETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49df24ac-a46c-488b-842b-d20def253aec
+                stepCounter: 12bebd98-814f-431e-871e-7106b77f7ea8
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          INT_SALESFORCE__DATE_SPINE: 5ac0acf7-1836-49f0-9c95-edf857d1ff17
+          WRK_SALESFORCE_CONVERTED_LEAD: f16a43ba-7a81-442d-90ac-32ac88be129e
+          WRK_SALESFORCE__EVENT: 12bebd98-814f-431e-871e-7106b77f7ea8
+          WRK_SALESFORCE__LEAD: 0b5cf7d2-1600-4fc5-8946-e4d4c3412792
+          WRK_SALESFORCE__OPPORTUNITY_CLOSED: d897aa45-c2c8-40b4-852b-b811298a1ae5
+          WRK_SALESFORCE__OPPORTUNITY_CREATED: a84bf568-ed98-4763-9d8e-1720da26c698
+          WRK_SALESFORCE__TASK: 2c69bb66-40a6-42ca-86e9-d606f5d39b0b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: INT_SALESFORCE__DATE_SPINE
+          - locationName: STAGE
+            nodeName: WRK_SALESFORCE__EVENT
+          - locationName: STAGE
+            nodeName: WRK_SALESFORCE__LEAD
+          - locationName: STAGE
+            nodeName: WRK_SALESFORCE__OPPORTUNITY_CLOSED
+          - locationName: STAGE
+            nodeName: WRK_SALESFORCE__OPPORTUNITY_CREATED
+          - locationName: STAGE
+            nodeName: WRK_SALESFORCE__TASK
+          - locationName: STAGE
+            nodeName: WRK_SALESFORCE_CONVERTED_LEAD
+        join:
+          joinCondition: |2-
+              FROM {{ ref('STAGE', 'INT_SALESFORCE__DATE_SPINE') }} "INT_SALESFORCE__DATE_SPINE" 
+                LEFT JOIN {{ ref('STAGE', 'WRK_SALESFORCE__LEAD') }} WRK_SALESFORCE__LEAD ON INT_SALESFORCE__DATE_SPINE.date_day = WRK_SALESFORCE__LEAD.created_date 
+                LEFT JOIN {{ ref('STAGE', 'WRK_SALESFORCE_CONVERTED_LEAD') }} WRK_SALESFORCE_CONVERTED_LEAD ON INT_SALESFORCE__DATE_SPINE.date_day = WRK_SALESFORCE_CONVERTED_LEAD.converted_date 
+                LEFT JOIN {{ ref('STAGE', 'WRK_SALESFORCE__TASK') }} WRK_SALESFORCE__TASK ON INT_SALESFORCE__DATE_SPINE.date_day = WRK_SALESFORCE__TASK.activity_date 
+                LEFT JOIN {{ ref('STAGE', 'WRK_SALESFORCE__EVENT') }} WRK_SALESFORCE__EVENT ON INT_SALESFORCE__DATE_SPINE.date_day = WRK_SALESFORCE__EVENT.activity_date 
+                LEFT JOIN {{ ref('STAGE', 'WRK_SALESFORCE__OPPORTUNITY_CREATED') }} WRK_SALESFORCE__OPPORTUNITY_CREATED ON INT_SALESFORCE__DATE_SPINE.date_day = WRK_SALESFORCE__OPPORTUNITY_CREATED.created_date 
+                LEFT JOIN {{ ref('STAGE', 'WRK_SALESFORCE__OPPORTUNITY_CLOSED') }} WRK_SALESFORCE__OPPORTUNITY_CLOSED ON INT_SALESFORCE__DATE_SPINE.date_day = WRK_SALESFORCE__OPPORTUNITY_CLOSED.close_date
+            WHERE INT_SALESFORCE__DATE_SPINE."DATE_DAY" <= CURRENT_DATE
+        name: SALESFORCE__DAILY_ACTIVITY
+        noLinkRefs: []
+  name: SALESFORCE__DAILY_ACTIVITY
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

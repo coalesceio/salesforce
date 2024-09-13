@@ -1,0 +1,170 @@
+fileVersion: 1
+id: c2a68e14-41e5-4716-a1cf-4acac057283c
+name: WRK_STG_SALESFORCE__USER_ROLE
+operation:
+  config:
+    groupByAll: false
+    incColumn:
+      columnCounter: ff945285-fa36-415a-a898-b56247daa061
+      stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+    insertStrategy: INSERT
+    orderby: false
+    persistTableLocation: STAGE
+    persistTableName: STG_SALESFORCE__USER_ROLE
+    postSQL: ""
+    preSQL: ""
+    refTable: true
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64bd1a7b-e498-40d5-919b-a2f350200862
+          stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+        config: {}
+        dataType: BOOLEAN
+        description: True, if this field has been deleted
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4caa0ff8-ed52-466c-89f4-84a8209cd6b4
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff945285-fa36-415a-a898-b56247daa061
+          stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dcd59fce-37d2-4e8a-9df0-b776693edb3e
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: CAST("USER_ROLE"."_FIVETRAN_SYNCED" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d446e77e-6e2f-45df-ada4-ebb728692aa3
+          stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique name of the object in the API.
+        name: DEVELOPER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3069ff1-9221-42e0-94b9-5f84c676422f
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 521378e3-575f-4f46-a656-aeb038a4d44a
+          stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation
+        name: USER_ROLE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbe5b073-5223-4274-a8d3-4c0828d3cc72
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a9ec23c-4178-439b-8faa-b01c61cd5572
+          stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. Name of the role. Corresponds to Label on the user interface.
+        name: USER_ROLE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0dce57a-712a-44a0-a8a7-30fa5faac56f
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d8857d0-5554-41df-9236-ca04e430f5ff
+          stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. The opportunity access level for the account owner.
+        name: OPPORTUNITY_ACCESS_FOR_ACCOUNT_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f48202ed-3f3b-4d56-98ae-186a3bf7bd26
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 136de293-e13e-4634-9227-d4c985e6876d
+          stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ID of the parent role.
+        name: PARENT_ROLE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b122b3a0-53de-4759-b0f6-90c9e1f4b900
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 40225643-6950-4150-8fb6-4350b9f2905a
+          stepCounter: c2a68e14-41e5-4716-a1cf-4acac057283c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Description of the forecast rollup.
+        name: ROLLUP_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fcbf1d80-45b6-4ebe-a4b9-3b2ca448d36d
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          USER_ROLE: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: USER_ROLE
+        join:
+          joinCondition: |
+            FROM {{ ref('SOURCE', 'USER_ROLE') }} USER_ROLE
+            WHERE COALESCE(CAST(NULL AS boolean),TRUE)
+            AND  "USER_ROLE"."_FIVETRAN_SYNCED" >  (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('STAGE', 'STG_SALESFORCE__USER_ROLE') }} )
+        name: WRK_STG_SALESFORCE__USER_ROLE
+        noLinkRefs:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__USER_ROLE
+  name: WRK_STG_SALESFORCE__USER_ROLE
+  overrideSQL: false
+  schema: ""
+  sqlType: INC:::230
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,538 @@
+fileVersion: 1
+id: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+name: PSTG_SALESFORCE__TASK
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6468e65a-656f-4621-8166-f92e35f2cf0b
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_STG_SALESFORCE__TASK_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6389c9ea-4d0e-4bfc-9989-a6ce40a62f04
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1961dd3f-214b-4bcb-8b9a-e9d3b51dd649
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dbe97523-508c-401c-be8d-f5e4b9bf4993
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation.
+        name: TASK_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d37b902d-589f-42ab-8ea1-8373dbeafa3e
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59117557-c86c-4d4f-9fa0-317d69aa185c
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Represents the ID of the related Account. The AccountId is determined as follows. If the value of WhatId is any of the following objects, then Salesforce uses that object’s AccountId. Account Opportunity Contract Custom object that is a child of Account If the value of the WhatIdfield is any other object, and the value of the WhoId field is a Contact object, then Salesforce uses that contact’s AccountId. (If your organization uses Shared Activities, then Salesforce uses the AccountId of the primary contact.) Otherwise, Salesforce sets the value of the AccountId field to null. This is a relationship field.
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f653721-c463-4006-82ea-39cee37296a0
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4764bde-5350-45a2-9dea-59b9aeddebe6
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Represents the due date of the task. This field has a timestamp that is always set to midnight in the Coordinated Universal Time (UTC) time zone. The timestamp is not relevant; do not attempt to alter it to accommodate time zone differences. Label is Due Date.
+        name: ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f63ce2d4-bf82-4f75-989d-abcb1ca2492c
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a32966d0-885c-43fe-938d-3e5e4d57fd4c
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Represents the result of a given call, for example, “we'll call back,” or “call unsuccessful.” Limit is 255 characters. Not subject to field-level security, available for any user in an organization with Salesforce CRM Call Center.
+        name: CALL_DISPOSITION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e2205c8-238c-47a5-b021-761d6aae0586
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a0e737e4-ddc9-42ed-a1ff-51d5ba1ccc09
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Duration of the call in seconds. Not subject to field-level security, available for any user in an organization with Salesforce CRM Call Center.
+        name: CALL_DURATION_IN_SECONDS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 138b130a-23ec-4c93-a47f-291e914a9a42
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ebd8f7f7-1fab-4e66-8914-7db8372fc66f
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Name of a call center. Limit is 255 characters. Not subject to field-level security, available for any user in an organization with Salesforce CRM Call Center.
+        name: CALL_OBJECT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 125b7b21-7772-44ee-9e95-313a3881dad3
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90bfca59-7773-49a4-a40c-aa3411b6b4d5
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: "The type of call being answered: Inbound, Internal, or Outbound."
+        name: CALL_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e13f566-549f-4a10-aa43-d796752685b8
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9e5cc8e-a726-41c5-b4dd-6a3a6f5365d8
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The date and time the task was saved with a Closed status. For insert, if the task is saved with a Closed status the field is set. If the task is saved with an Open status the field is set to NULL. For update, if the task is saved with a new Closed status, the field is reset. If the task is saved with a new non-closed status, the field is reset to NULL. If the task is saved with the same closed status (that is, unchanged) there is no change to the field.
+        name: COMPLETED_DATE_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1d572731-c5f1-4d65-a262-d8c4f2cc77b3
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0797f8e-dc65-42f9-ab4c-b5f375e8fb2f
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Created By ID
+        name: CREATED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f7d52fa-7e16-4c9a-ad0c-8afdd001dd99
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7e8f21d-67f2-4778-8ebd-c5a1c42585bf
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Created Date
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 771e3603-a265-4160-b0f9-3391a82ed751
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7dffe09c-1253-49f9-b3e9-69bdae435546
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Contains a text description of the task.
+        name: TASK_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3ca463ea-3c99-4d3a-aed9-403043466cd3
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2598489e-20f3-4533-9b30-aa25ad877913
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the event has been archived.
+        name: IS_ARCHIVED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3303cc42-1254-458a-9fce-d4a5a16dd9ea
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f197a8a5-6a2f-4144-bfc7-d8630f353fed
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the task has been completed (true) or not (false). Is only set indirectly via the Status picklist. Label is Closed.
+        name: IS_CLOSED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce7d5293-f4a0-4944-bcf2-533a11a7328a
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71a9428e-b111-493a-a104-6719d4c99438
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: BOOLEAN
+        description: Deleted
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e3016776-d64d-4586-bd1b-4ef4ca3e58fa
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b6d24ea-1550-4561-89f8-a16401e641bf
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates a high-priority task. This field is derived from the Priority field.
+        name: IS_HIGH_PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0ae0041e-d692-4c48-bb1c-6a8470efd2ae
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9438e199-97e6-4bec-8797-2c53749dfe91
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Last Modified By ID
+        name: LAST_MODIFIED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be8da134-25d6-4b8f-9397-c2e207748e65
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e600f29-0c52-4ede-95bb-69969d5b2571
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Last Modified Date
+        name: LAST_MODIFIED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 656d469b-bcce-4994-9abf-7667cbc16c35
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 196f0d13-28b5-4212-b975-b24340d4c1bd
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the User or Group who owns the record. Label is Assigned To ID. This field accepts Groups of type Queue only. In the user interface, Group IDs correspond with the queue’s list view names. To create or update tasks assigned to Group, use v48.0 or later. This is a polymorphic relationship field.
+        name: OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 436c6ef0-a92e-45e6-9128-54153fd0bd47
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8fe60967-5569-44de-a67b-db31ee3f5457
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. Indicates the importance or urgency of a task, such as high or low.
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f1e93438-2f17-47d0-9b25-43cc0164e0fd
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2c50c99-1251-4ff3-89a3-164d5ce6a1da
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the record type assigned to this object.
+        name: RECORD_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26a300c2-f92d-4185-9602-e6e9747f17a2
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7b970dd-9ebf-4b4e-a6cd-0bc8c245d9f6
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. The status of the task, such as In Progress or Completed. Each predefined Status field implies a value for the IsClosed flag. To obtain picklist values, query the TaskStatus object.
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 75cef6e9-299c-436b-89f0-82b8680257cc
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2ddafb2-4ce4-47d5-894f-0300c517297c
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The subject line of the task, such as “Call” or “Send Quote.”
+        name: SUBJECT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fd99c5f9-31b3-49ff-b69c-1bdded5f5929
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76e591dc-f200-4909-840c-4c2d0002d0d5
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Provides standard subtypes to facilitate creating and searching for specific task subtypes.
+        name: TASK_SUBTYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b93caf00-eef3-4770-8448-4cf145e9462b
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 40abcc80-6cb9-466f-9e8d-f98ee5610d93
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The type of task, such as Call or Meeting.
+        name: TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d2c4b6a-1624-4a53-86fb-0a8fe9bee6ba
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdf6d33c-5abd-4b7e-a5e8-2e1af1575927
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Available to organizations that have Shared Activities enabled. Count of related TaskRelations pertaining to WhatId. Count of the WhatId must be 1 or less.
+        name: WHAT_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f65d31e8-6942-45a0-ad12-b980e36e602c
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 28d03aba-5a99-4ed4-9b5e-aa0fe6a2c3ff
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The WhatId represents nonhuman objects such as accounts, opportunities, campaigns, cases, or custom objects. WhatIds are polymorphic. Polymorphic means a WhatId is equivalent to the ID of a related object. The label is Related To ID. This is a polymorphic relationship field.
+        name: WHAT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d6703e54-c58e-41ba-9b9b-c906ca1359dc
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86aa0f0b-2724-4295-a5e4-92cb82b306df
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Available to organizations that have Shared Activities enabled. Count of related TaskRelations pertaining to WhoId.
+        name: WHO_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fcb15815-1346-4d00-abf4-0e492a7527f8
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5abe42bf-a051-427f-993b-c59aed374a53
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The WhoId represents a human such as a lead or a contact. WhoIds are polymorphic. Polymorphic means a WhoId is equivalent to a contact’s ID or a lead’s ID. The label is Name ID. If Shared Activities is enabled, the value of this field is the ID of the related lead or primary contact. If you add, update, or remove the WhoId field, you might encounter problems with triggers, workflows, and data validation rules that are associated with the record. The label is Name ID. Beginning in API version 37.0, if the contact or lead ID in the WhoId field is not in the TaskWhoIds list, no error occurs and the ID is added to the TaskWhoIds as the primary WhoId. If WhoId is set to null, an arbitrary ID from the existing TaskWhoIds list is promoted to the primary position.
+        name: WHO_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b135a7e1-326e-4423-abdd-03a7cf960d93
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a97c6c15-374e-49b3-81b5-bf4facb620e6
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 161fcfc5-f03d-4263-a3eb-e27ff8c6f1aa
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0fe3c41e-1dcb-4b4b-ae69-21a732c2e639
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8ae60982-361a-4ffe-be12-a87bc4250faf
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 579283d0-5dd3-4bc3-801a-09a6a2104527
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f9e4932-9f8c-46c2-9a53-b848e8bb7f4b
+          stepCounter: 9c122789-a3ec-4bf4-a9d1-dc0a86d93cde
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__TASK
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__TASK') }} "STG_SALESFORCE__TASK"
+        name: PSTG_SALESFORCE__TASK
+        noLinkRefs: []
+  name: PSTG_SALESFORCE__TASK
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

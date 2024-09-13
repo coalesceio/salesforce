@@ -1,0 +1,588 @@
+fileVersion: 1
+id: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+name: STG_SALESFORCE__OPPORTUNITY
+operation:
+  config:
+    groupByAll: false
+    incColumn:
+      columnCounter: 7b3b0551-5f7c-490f-aaf3-fd177e8c89f5
+      stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+    insertStrategy: INSERT
+    orderby: false
+    persistTableLocation: TARGET
+    persistTableName: SALESFORCE__OPPORTUNITY_ENHANCED
+    postSQL: ""
+    preSQL: ""
+    refTable: true
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b3b0551-5f7c-490f-aaf3-fd177e8c89f5
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fb6a1d5d-1239-4ba9-9834-7f8c2a9afea0
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: CAST("OPPORTUNITY"."_FIVETRAN_SYNCED" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5a9e234-9586-4327-927c-5ac6a1794535
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the account associated with this opportunity.
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e794a8a7-e2c1-4463-84ec-8fc7373cc2a6
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3445aff-a230-4980-8735-cea43cfa4484
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Estimated total sale amount. For opportunities with products, the amount is the sum of the related products.
+        name: AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fe62c30-fd55-4872-b845-0f5a8ca11731
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: "CAST(Amount AS NUMERIC(28,6)) "
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91c52f7f-2755-4846-a974-22f2c1d97e1b
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of a related Campaign. This field is defined only for those organizations that have the campaign feature Campaigns enabled.
+        name: CAMPAIGN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a47c046a-5933-489d-a884-de85fa0c42a1
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b1f7515-9c4a-43e0-acb0-116fca851fc2
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Required. Date when the opportunity is expected to close. The Close Date will change as you work the sale. It should never be set in stone as it affects your sales pipeline, and it should never be in the past.
+        name: CLOSE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5cc8419c-0cf4-4866-b711-1fc4481c95a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: CAST("OPPORTUNITY"."CLOSE_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d14aca27-d590-4b04-b002-1ab5c7940845
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Date when the opportunity was created.
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0443aad3-fcf8-448d-92e2-e93cd06726a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: CAST("OPPORTUNITY"."CREATED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f10a1f6-102e-4dcc-827d-af11d2bc3391
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Text description of the opportunity.
+        name: OPPORTUNITY_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 51394d62-5388-4380-9ee4-f0761aadfd30
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4fccb635-68aa-4670-a0c5-6c35bf3225fb
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Read-only field that is equal to the product of the opportunity Amount field and the Probability.
+        name: EXPECTED_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 08d4909f-0946-492a-9fb7-4fb63e3f8f2c
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If fiscal years are not enabled, the name of the fiscal quarter or period in which the opportunity CloseDate falls.
+        name: FISCAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5e237288-3347-4494-bff8-dfad20cc387b
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca836cd1-7bae-4f48-a9a1-40d96cbebb28
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Represents the fiscal quarter. Valid values are 1, 2, 3, or 4.
+        name: FISCAL_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2345e30-a53f-4c39-825f-8c29d9f194d2
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 395da938-a290-4c30-bc6f-9dc749018738
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Represents the fiscal year, for example, 2006.
+        name: FISCAL_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e0fcba1-df66-4b1e-84d0-84e716b2c439
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0db367e4-c948-46d8-95ea-481a4ca96ef0
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Restricted picklist field.
+        name: FORECAST_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 652d7491-ba83-4ba4-97e0-656ff0d2fe9a
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 046c0d66-13cf-40c3-9fbd-67c22e3a152f
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The name of the forecast category.
+        name: FORECAST_CATEGORY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91e9ecb5-e5ba-4586-95dc-0d6e6f8332d5
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab71c138-f3dc-412f-af2b-6f83b5dedbd1
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether an opportunity has an open event or task (true) or not (false).
+        name: HAS_OPEN_ACTIVITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 042eb76e-a63e-4d10-a58c-4b3df84dff7f
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef70a815-bc07-41dc-8e54-6816d3133811
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: Read-only field that indicates whether the opportunity has associated line items. A value of true means that Opportunity line items have been created for the opportunity.
+        name: HAS_OPPORTUNITY_LINE_ITEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a0d538d-f367-4e6c-8644-7068613deb52
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43d16ddc-7432-4b1a-ad7d-13ebf5754437
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether an opportunity has an overdue task (true) or not (false).
+        name: HAS_OVERDUE_TASK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8e0425a-c0a8-4564-9dec-0d8bc52c25f8
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 480cdf6c-7de6-4d22-bedb-a6a0c55b7d6f
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation.
+        name: OPPORTUNITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc0deb21-6e94-436b-9418-e707863f2ec8
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04d24527-b3fe-4c0b-a25b-fa413480c2c6
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: True, if Stage Name Label is Closed.
+        name: IS_CLOSED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c97f5857-9137-4661-b1f5-c0c5427c6816
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ce2a3b4-6caa-4198-a6a6-4c949707bd24
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the object has been moved to the Recycle Bin (true) or not (false).
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39a20b60-e6a9-455e-9c5b-b1a5dfc1c46f
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4850eb98-674d-4e7c-a2c7-f04860ef878e
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: True, if Stage Name Label is Won.
+        name: IS_WON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d91c74d4-5a99-4d60-af23-8f980905eb8d
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8edcaabd-cd35-4eac-af39-831576c112c6
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Value is one of the following, whichever is the most recent:Due date of the most recent event logged against the record or Due date of the most recently closed task associated with the record.
+        name: LAST_ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4296226b-5088-4cba-8e45-26b7adb28604
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: CAST("OPPORTUNITY"."LAST_ACTIVITY_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d33a09f-c049-4849-8616-42c44ef8250f
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last accessed this record, a record related to this record, or a list view.
+        name: LAST_REFERENCED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5db9c855-c8ce-4008-b46f-8d95535742ed
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: CAST("OPPORTUNITY"."LAST_REFERENCED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78f064c9-f25d-481a-9176-f1c79ea2d5fe
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last viewed this record or list view. If this value is null, the user might have only accessed this record or list view (LastReferencedDate) but not viewed it.
+        name: LAST_VIEWED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a82e48a6-1ae4-4c31-99cf-a973eaa775a2
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: CAST("OPPORTUNITY"."LAST_VIEWED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d68fe437-a3a4-4648-9522-fc7a3f62b9c2
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Source of this opportunity, such as Advertisement or Trade Show.
+        name: LEAD_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 738732cf-98c6-4f57-9af0-7530ef90dafb
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98d5e7a8-57fb-44e6-bc7d-fc419335b865
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. A name for this opportunity.
+        name: OPPORTUNITY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bfa24a3e-9caa-453b-b66e-6e5deecc7124
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 89999b42-6266-45e0-8726-31b0b5152cf5
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Description of next task in closing opportunity.
+        name: NEXT_STEP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2884373-cca6-4f0a-a20d-55fb3f06a83b
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae9ddcfa-e702-40b6-b2ca-b9f9cda73891
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the User who has been assigned to work this opportunity.
+        name: OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: af306072-b176-4254-8a04-bfcca3da2ad2
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5e42ea6-1a70-4dfb-8a5b-adcc6904a685
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: FLOAT
+        description: Percentage of estimated confidence in closing the opportunity.
+        name: PROBABILITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2425c0a-ef44-4c1a-a4f6-f8f160cddb0a
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66160038-89d0-43d4-8d6b-c09caf9a3afa
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the record type assigned to this object.
+        name: RECORD_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73c6986f-7752-49b6-a347-47cc0b7bdf6e
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. Current stage of this record. The StageName field controls several other fields on an opportunity.
+        name: STAGE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4692cbc9-3a9b-4286-ad0d-5e3bd610b113
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f365c837-2343-432c-89e1-a6f097f54dea
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ID of the Quote that syncs with the opportunity.
+        name: SYNCED_QUOTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd520599-f4af-4c81-af26-910ea4a33ea9
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Type of opportunity. For example, Existing Business or New Business.
+        name: TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58b85ce9-622f-4433-9168-8a90d44ecbda
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cad92fa0-7ca7-47c5-b5bf-d7f5b629ea0e
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: Yes, if the opportunity created date is in the current month.
+        name: IS_CREATED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0443aad3-fcf8-448d-92e2-e93cd06726a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: (CASE WHEN CAST("OPPORTUNITY"."CREATED_DATE" AS TIMESTAMP) >= date_trunc('month', current_timestamp::timestamp) THEN TRUE ELSE FALSE END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4c3b7d4-a1dc-43c2-9c40-875c3958128a
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: Yes, if the opportunity created date is in the current quarter.
+        name: IS_CREATED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0443aad3-fcf8-448d-92e2-e93cd06726a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: " (CASE WHEN CAST(\"OPPORTUNITY\".\"CREATED_DATE\" AS TIMESTAMP) >= date_trunc('quarter', current_timestamp::timestamp) THEN TRUE ELSE FALSE END)"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e7a7b14-51b1-4fa8-a806-b07d51eab1f0
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: NUMBER(9,0)
+        description: The difference, in days, between the opportunity created date and the current timestamp.
+        name: DAYS_SINCE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0443aad3-fcf8-448d-92e2-e93cd06726a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: " DATEDIFF(DAY, current_timestamp::timestamp, CAST(\"OPPORTUNITY\".\"CREATED_DATE\" AS TIMESTAMP))"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b737b2d1-0a49-48c5-9cd5-532ccc06bd76
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: NUMBER(9,0)
+        description: The difference, in days, between the opportunity created date and the opportunity close date.
+        name: DAYS_TO_CLOSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5cc8419c-0cf4-4866-b711-1fc4481c95a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+              - columnCounter: 0443aad3-fcf8-448d-92e2-e93cd06726a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: " DATEDIFF(DAY, CAST(\"OPPORTUNITY\".\"CLOSE_DATE\" AS TIMESTAMP), CAST(\"OPPORTUNITY\".\"CREATED_DATE\" AS TIMESTAMP))"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e985cd38-472e-4390-b913-93b435db3090
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: Yes, if the opportunity close date is in the current month.
+        name: IS_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5cc8419c-0cf4-4866-b711-1fc4481c95a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: (CASE WHEN date_trunc('month', CAST("OPPORTUNITY"."CLOSE_DATE" AS TIMESTAMP)) = date_trunc('month', current_timestamp::timestamp) THEN TRUE ELSE FALSE END)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aabedd0e-71b6-4b5c-91f0-c03922f3aaf5
+          stepCounter: d7430874-7d7b-4abf-8db3-7e367bbb2e71
+        config: {}
+        dataType: BOOLEAN
+        description: Yes, if the opportunity close date is in the current quarter.
+        name: IS_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5cc8419c-0cf4-4866-b711-1fc4481c95a7
+                stepCounter: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+            transform: "(CASE WHEN date_trunc('quarter', CAST(\"OPPORTUNITY\".\"CLOSE_DATE\" AS TIMESTAMP)) = date_trunc('quarter', current_timestamp::timestamp) THEN TRUE ELSE FALSE END) "
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          OPPORTUNITY: ae25e6ba-9bfc-4954-9a2f-97bc2673f015
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: OPPORTUNITY
+        join:
+          joinCondition: |-
+            FROM {{ ref('SOURCE', 'OPPORTUNITY') }} OPPORTUNITY
+            WHERE COALESCE(CAST(NULL AS boolean),TRUE)
+            AND NOT COALESCE(is_deleted,FALSE)
+              AND "OPPORTUNITY"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'SALESFORCE__OPPORTUNITY_ENHANCED') }} )
+        name: STG_SALESFORCE__OPPORTUNITY
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OPPORTUNITY_ENHANCED
+  name: STG_SALESFORCE__OPPORTUNITY
+  overrideSQL: false
+  schema: ""
+  sqlType: INC:::230
+  type: sql
+  version: 1
+type: Node

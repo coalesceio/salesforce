@@ -1,0 +1,523 @@
+fileVersion: 1
+id: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+name: STG_SALESFORCE__ACCOUNT
+operation:
+  config:
+    groupByAll: false
+    incColumn:
+      columnCounter: c9e2b585-9821-460a-aafc-88d1e462f6bd
+      stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+    insertStrategy: INSERT
+    orderby: false
+    persistTableLocation: TARGET
+    persistTableName: SALESFORCE__OPPORTUNITY_ENHANCED
+    postSQL: ""
+    preSQL: ""
+    refTable: true
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Represents an individual account, which is an organization or person involved with your business (such as customers, competitors, and partners).
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9e2b585-9821-460a-aafc-88d1e462f6bd
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0207bd01-cf38-4aca-ac68-2467b098eeee
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: CAST("ACCOUNT"."_FIVETRAN_SYNCED" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd932809-2fc6-4c75-8a6f-300ae2be36f9
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Account number assigned to this account (not the unique, system-generated ID assigned during creation).
+        name: ACCOUNT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac16e754-c480-40ef-8bfc-8cc41e299612
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The source of the account record. For example, Advertisement, Data.com, or Trade Show.
+        name: ACCOUNT_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96da1da1-e2a4-4d98-a645-d4ac30b565ca
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b980842e-eb2c-4f21-aa68-3a5d93a06730
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Estimated annual revenue of the account.
+        name: ANNUAL_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ff6c14aa-5b1a-4073-987a-66cd8edc220e
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e9cd120-8768-4f59-85a8-631a7b29d74f
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Details for the billing address of this account.
+        name: BILLING_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad8d3923-c704-4617-9126-d610de8e75fc
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2d18160-edf8-497e-833b-0eb843a00740
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Details for the billing address of this account.
+        name: BILLING_COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d17af07f-e2a4-4455-970f-df859712bba1
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e0c4bff6-26e9-40ab-a7c5-d6b193929872
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Details for the billing address of this account.
+        name: BILLING_POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6648b6a-dde9-41e1-a392-38f51e7f96ab
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d65bebf-df45-4191-831c-812eb98cc266
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Details for the billing address of this account.
+        name: BILLING_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 499c77b3-c998-489a-b6fd-3f2c268b03db
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf66492d-f7cd-446c-9d7d-06eb17d3dc8e
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ISO state code for the account’s billing address.
+        name: BILLING_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d156f654-bee8-4cc2-9140-3b80d179f9ce
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Street address for the billing address of this account.
+        name: BILLING_STREET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 663e522a-aa85-4f1d-b274-279d24030258
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50e36e16-616f-4339-ab9c-cdff749f563f
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Text description of the account.
+        name: ACCOUNT_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9dd8076-fa78-468d-b2d8-c1355c680d26
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3025184-8539-4240-af7f-39eadf5efdc5
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8dc26193-9138-4d5c-b1cb-a948bdbedd70
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41b79fd9-9b70-4f8d-9af4-ac8dfcbb7da9
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: An industry associated with this account.
+        name: INDUSTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f9831621-6bb8-41fd-8634-36e26ad0926e
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 986dbfab-f8c0-4bd0-8e1f-b0aaaa5315f8
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the object has been moved to the Recycle Bin (true) or not (false).
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 186aced2-08af-4869-8f20-46595145a33d
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 280d6f61-30e6-42a3-9e24-6d7f7327efd8
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Value is one of the following, whichever is the most recent
+        name: LAST_ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b52dc065-bdce-46eb-820e-7535f4779d9f
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5aaeb2a3-e351-4c26-afc0-cbe5115b02a7
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last accessed this record, a record related to this record, or a list view.
+        name: LAST_REFERENCED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a78690e-9c2c-46e6-a895-db9e1de52f41
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: CAST("ACCOUNT"."LAST_REFERENCED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72f8d7e2-19f6-43da-8baa-22c40daf6d89
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last viewed this record or list view. If this value is null, the user might have only accessed this record or list view (LastReferencedDate) but not viewed it.
+        name: LAST_VIEWED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ca6abade-e7af-416c-bde7-e7059d053f92
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: CAST("ACCOUNT"."LAST_VIEWED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04e9214b-7451-42d8-bafd-5a1339245527
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If this object was deleted as the result of a merge, this field contains the ID of the record that was kept. If this object was deleted for any other reason, or has not been deleted, the value is null.
+        name: MASTER_RECORD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c2a0356-4b50-477e-93c2-e352982c536c
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52cf58b8-a667-49e6-a2cd-8bcdd6aaca82
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. Name of the account.
+        name: ACCOUNT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d958d47-f50f-4a18-87c1-69af447c08d3
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1d00d62-dde8-47f9-922b-c48b88a21f82
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Number of employees working at the company represented by this account.
+        name: NUMBER_OF_EMPLOYEES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 35e41ab0-b222-4856-abe5-ed9279805e1a
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a868e50f-4a4a-4209-b02a-942da338397a
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ID of the user who currently owns this account.
+        name: OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4f34000-57f0-4fb3-a901-87c4f2a0c932
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9557246a-b031-4473-8013-4a27ceb2bd1c
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Ownership type for the account, for example Private, Public, or Subsidiary.
+        name: OWNERSHIP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 30f017fc-3209-4905-b739-50587a9b1571
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the parent object, if any.
+        name: PARENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2b9b946-d907-4d4f-84cc-2183dd5c69ea
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad8ad4bd-f7a6-4640-b525-b2377e83231f
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The account’s prospect rating, for example Hot, Warm, or Cold.
+        name: RATING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 541c0861-03fd-4724-b319-1fec6e80f584
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the record type assigned to this object.
+        name: RECORD_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69547698-e6a9-4fda-9a86-344f51850a59
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Details of the shipping address for this account
+        name: SHIPPING_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4158c43-9caf-4bc4-8c0d-5ca51139071f
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a132a1ba-3116-4e77-9d8f-850b9de96e60
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Details of the shipping address for this account. Country
+        name: SHIPPING_COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9facf6e7-a448-4d4b-85eb-c4c050820d25
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd0e67f1-4a6f-4b9e-9ecf-8e5849126cfc
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ISO country code for the account’s shipping address.
+        name: SHIPPING_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1bd2b37d-3e02-4c64-812d-6f03637d4273
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Details of the shipping address for this account. Postal code
+        name: SHIPPING_POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8801edb4-2a11-4319-ab3a-63965979762d
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad2b8f57-b787-4f93-afa9-1b124cc7f3f5
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Details of the shipping address for this account. State
+        name: SHIPPING_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68958bcd-6fbe-4db5-b9e8-edb48816e94d
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 665099b4-b66a-4f62-b10d-0a539cebd6d0
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ISO state code for the account’s shipping address.
+        name: SHIPPING_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da13cb12-efb7-4363-81a2-e2d4fb67cf79
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The street address of the shipping address for this account.
+        name: SHIPPING_STREET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e9c5d244-49d3-49b3-899e-f7ee4e4b304b
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4fa5fd31-e92a-4ccb-b315-b92f8781ec75
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Type of account, for example, Customer, Competitor, or Partner.
+        name: TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1ab5dc1c-7db2-4d4a-8838-f1a63808d94e
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 42201bc1-a01d-4dff-a44e-df14f259e861
+          stepCounter: 9f192f62-3010-404d-bf79-6dc6aef2fc1f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The website of this account.
+        name: WEBSITE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6ab76a3-8558-4e46-9baf-57e9e111188e
+                stepCounter: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          ACCOUNT: 208f85fd-ee71-4ca8-be2a-00c90a54da98
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: ACCOUNT
+        join:
+          joinCondition: |-
+            FROM {{ ref('SOURCE', 'ACCOUNT') }} ACCOUNT
+            WHERE
+            	NOT COALESCE(is_deleted,
+            	FALSE)
+              AND "ACCOUNT"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'SALESFORCE__OPPORTUNITY_ENHANCED') }} )
+        name: STG_SALESFORCE__ACCOUNT
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OPPORTUNITY_ENHANCED
+  name: STG_SALESFORCE__ACCOUNT
+  overrideSQL: false
+  schema: ""
+  sqlType: INC:::230
+  type: sql
+  version: 1
+type: Node

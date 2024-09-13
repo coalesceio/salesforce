@@ -1,0 +1,556 @@
+fileVersion: 1
+id: 211f903a-cf22-4612-88eb-7ae95a9705b4
+name: INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER
+operation:
+  config:
+    groupByAll: false
+    insertStrategy: INSERT
+    orderby: false
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2111c86-2352-42b7-8133-8791f129c7f3
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32844e0a-9292-48e3-89bc-5aacf3891355
+                stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2a4bfb9-1d79-4f1e-934c-c2b6ec46e6e1
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9eff9d70-6692-408c-b157-37105966c54f
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+              - columnCounter: b63257ff-ac31-43ad-b952-a47881cc15b5
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+              - columnCounter: c170d327-a4c2-4a3b-93af-15c9cb24510d
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: COALESCE(WV_INT_AGG_PIPELINE_BY_OWNER.P_MANAGER_ID, WV_INT_AGG_BOOKING_BY_OWNER.B_MANAGER_ID, WV_INT_AGG_LOST_BY_OWNER.L_MANAGER_ID)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 38b02cd4-513f-481e-aa2a-dce754411681
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: B_MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b63257ff-ac31-43ad-b952-a47881cc15b5
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf7413d7-1d9d-47de-9413-349d283c521a
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: B_OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1ab788ac-4ecd-4cc2-beb9-49b666a90051
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fc8fe7d6-e3e5-4ac2-88bb-4823e2cca87a
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: BOOKINGS_AMOUNT_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab0dda3a-a241-4606-a64c-f3d59f67898e
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e40368f-2d8b-4367-8729-d837f0cfd29f
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: BOOKINGS_AMOUNT_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3804c50f-81b9-4d19-9305-263215883b33
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7dc06e4f-68f4-4123-a9b0-ca63074080b9
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: TOTAL_NUMBER_BOOKINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a692200-b289-4f3e-9808-c3fd53acb1a3
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fadd6ae6-10f5-4b65-90e8-7de3e92bb2fb
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TOTAL_BOOKINGS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9845010d-e034-4820-bf60-5494e5fbed1f
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0f7df24-dfdd-4a72-a7ff-f4298ba93b22
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(13,0)
+        description: ""
+        name: BOOKINGS_COUNT_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bd5a3e6e-be83-49fa-bda3-8baf718a28b0
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3dd5c672-7306-4719-823a-2ce4cd09db52
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(13,0)
+        description: ""
+        name: BOOKINGS_COUNT_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 698ec324-7dc7-4d68-a738-53ce3ed6d27c
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c5ef9851-bc9b-402c-adcd-0e1ae148aa4a
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: AVG_BOOKINGS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d523531e-29ec-459f-923c-0127697b8db0
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 159029ad-7911-46a3-b50e-8beaa3617310
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: LARGEST_BOOKING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 999b7f7f-ca01-46ee-ad2f-4dd900217bdf
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1bbe43f-e40b-4ae0-88e9-03e322d1d3c1
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(27,6)
+        description: ""
+        name: AVG_DAYS_TO_CLOSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d933ec40-100b-4f02-946a-616c4406af69
+                stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff62142c-9f45-4cc0-801f-6eab50fa24b7
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: L_MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c170d327-a4c2-4a3b-93af-15c9cb24510d
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f7a423b-6fbc-4518-9b85-18e4143fd1a5
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: L_OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1503bbf1-794f-463b-ab86-b29a010f6051
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d210669-3624-4084-91e9-0a3dd97c9cc3
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LOST_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b59fdf7-3d2c-44b5-8790-b460cff85e44
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2cc5c8c-b133-43da-bfcf-b525cce05689
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LOST_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5803a92b-0754-4fca-8122-97cecd0059d5
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82ffd4b6-838e-40d5-9c41-6bf31ac62cba
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: TOTAL_NUMBER_LOST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fa37bf50-c076-4efa-aaa6-a5e7482c3bec
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ca87658-4903-4ff8-ab89-47024829ef70
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TOTAL_LOST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ea2f0e0-7bd9-46ea-8f3f-07a1c5d32b2e
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5bea62d-387c-4396-b458-4e28779929cf
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(13,0)
+        description: ""
+        name: LOST_COUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 54279492-e1d0-47cf-9bd8-a5def30f4a75
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be0ec2e4-1474-4fb0-b52b-86ce4d78344e
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(13,0)
+        description: ""
+        name: LOST_COUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2909a198-4f38-44f2-94bc-b42148f5d02c
+                stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d79a0b78-1e29-4a81-9650-cd55c8d976c8
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: P_MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9eff9d70-6692-408c-b157-37105966c54f
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35e126b6-0bdb-4434-8f21-8435e71acf8b
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: P_OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2cb12f9-c099-471b-a620-6fd2306db8ac
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61f1f27d-c9ed-4c10-9d2e-bfdce0dd6bc3
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PIPELINE_CREATED_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 088e8f04-37ff-4dbc-ba3a-fda5f328303e
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63e12845-35d3-4672-96e6-41d2dd8ff786
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PIPELINE_CREATED_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c2c2615-1548-4c1a-b2c7-d6b84ccdd19c
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a042290f-90cf-4f18-a483-f51788430523
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PIPELINE_CREATED_FORECAST_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cefa4832-50fa-4b4b-b3a3-65c4fe6c08c8
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5912e7d2-9133-44a3-bf08-0afc59be7969
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: PIPELINE_CREATED_FORECAST_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04ca9532-9285-4511-beee-f7c2e207e712
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dfc639d9-ba3c-4efb-9a03-bedbc73b9cc2
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(13,0)
+        description: ""
+        name: PIPELINE_COUNT_CREATED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 429641a4-b1b8-4eec-abc2-abcef3ed2395
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 855e1707-ddea-46dc-b0ad-c2b83e3a0b52
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(13,0)
+        description: ""
+        name: PIPELINE_COUNT_CREATED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f57e637c-157e-429d-9889-165472bf8faf
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6f65e78-7a97-45fa-abfb-1b705c4aa84c
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(18,0)
+        description: ""
+        name: TOTAL_NUMBER_PIPELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 37aa402e-d065-4b0f-8601-73359df3ee3f
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e218dd71-805b-4510-ac8e-73a8da67af41
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TOTAL_PIPELINE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93f382c9-9b5e-4937-9ded-90f281d69301
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ce67220-6181-497c-8bc4-57d44697c6ae
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: TOTAL_PIPELINE_FORECAST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 562a2951-ae92-489b-bcc8-4cefc18504d8
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de99b6ae-8018-4afd-8e11-d9717da28aca
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: AVG_PIPELINE_OPP_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5bbc83b2-47c4-4d3e-aeac-98b6a4f9f2c1
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04fe329c-0ac1-4ab5-a607-009a35cf3057
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: LARGEST_DEAL_IN_PIPELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ae18549-7fe2-4fa6-b3fc-da466092ca5f
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d856107-b139-49e3-9e6f-457e995b6aa9
+          stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        config: {}
+        dataType: NUMBER(27,6)
+        description: ""
+        name: AVG_DAYS_OPEN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5b065fa2-f9ca-4faa-971c-4c004d7986ba
+                stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_SALESFORCE__USER: 4dca8e3d-9df3-416f-90f6-a16613958618
+          WV_INT_AGG_BOOKING_BY_OWNER: 038bc459-e631-4ba0-90fc-801c2117e620
+          WV_INT_AGG_LOST_BY_OWNER: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+          WV_INT_AGG_PIPELINE_BY_OWNER: d7b6b842-30e0-4d86-af0d-e47207675903
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__USER
+          - locationName: STAGE
+            nodeName: WV_INT_AGG_BOOKING_BY_OWNER
+          - locationName: STAGE
+            nodeName: WV_INT_AGG_LOST_BY_OWNER
+          - locationName: STAGE
+            nodeName: WV_INT_AGG_PIPELINE_BY_OWNER
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'STG_SALESFORCE__USER') }} "STG_SALESFORCE__USER"
+            LEFT JOIN {{ ref('STAGE', 'WV_INT_AGG_BOOKING_BY_OWNER') }} "WV_INT_AGG_BOOKING_BY_OWNER"
+            ON  "WV_INT_AGG_BOOKING_BY_OWNER".B_OWNER_ID = "STG_SALESFORCE__USER".USER_ID 
+            LEFT JOIN {{ ref('STAGE', 'WV_INT_AGG_LOST_BY_OWNER') }} "WV_INT_AGG_LOST_BY_OWNER"
+            ON "WV_INT_AGG_LOST_BY_OWNER".L_OWNER_ID  = "STG_SALESFORCE__USER".USER_ID
+            LEFT JOIN {{ ref('STAGE', 'WV_INT_AGG_PIPELINE_BY_OWNER') }} "WV_INT_AGG_PIPELINE_BY_OWNER"
+            ON "WV_INT_AGG_PIPELINE_BY_OWNER".P_OWNER_ID = "STG_SALESFORCE__USER".USER_ID  
+        name: INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER
+        noLinkRefs: []
+  name: INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

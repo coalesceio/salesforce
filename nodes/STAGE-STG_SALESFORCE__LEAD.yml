@@ -1,0 +1,660 @@
+fileVersion: 1
+id: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+name: STG_SALESFORCE__LEAD
+operation:
+  config:
+    groupByAll: false
+    insertStrategy: INSERT
+    orderby: false
+    postSQL: ""
+    preSQL: ""
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Represents a prospect or lead.
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3cb41a11-be3f-4f6e-aa00-7e0feff4d149
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ccc0e8e7-380c-4dd5-bac2-5ea03d2bcb32
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: CAST(_FIVETRAN_SYNCED AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94f689ca-b765-4c23-b333-8c75aebaec85
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation.
+        name: LEAD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e13a5a9-f4a8-4b81-99dd-07a1b832b9a5
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a3e76e3-ba59-48d2-adf8-67e0ae3502da
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Annual revenue for the lead’s company.
+        name: ANNUAL_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6448c73-f40b-4677-aac5-d878f2864a4f
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df0de00e-2edc-47cf-9aa8-a9ffd3e18362
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: City for the lead’s address.
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2f412dc-4d68-4e3c-8500-9ca16db91336
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df9aa3c8-9a28-4716-b513-8bc859eae098
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. The lead’s company.
+        name: COMPANY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f22a4fee-9f42-4d89-9f1b-6ab90c3420ae
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6266564-c7b9-4927-aa47-16924d55064f
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Object reference ID that points to the account into which the lead converted. This is a relationship field.
+        name: CONVERTED_ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ba65aa86-fb91-47b3-a2b8-b660508890fa
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5075fe5-924f-4ca4-9ade-39f6853bf357
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Object reference ID that points to the contact into which the lead converted. This is a relationship field.
+        name: CONVERTED_CONTACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0ea7afb4-8bd9-4b21-bc13-e7811be74ce5
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4a50633-9145-4e66-a15b-e98446c38325
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Date on which this lead was converted.
+        name: CONVERTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d762d238-621f-403c-8ddb-8c2479703f34
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5411587-bf2f-429c-8d90-a8acb6259992
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Object reference ID that points to the opportunity into which the lead has been converted. This is a relationship field.
+        name: CONVERTED_OPPORTUNITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e931c97-1796-4535-84ec-a368819c2f0c
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 45591760-2b3f-4da1-a6d2-5fef9b272391
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The lead’s country.
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cddf901a-0dac-443e-9f35-946999d0c294
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 711b2a06-08e5-4d08-9515-bae742189e11
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ISO country code for the lead’s address.
+        name: COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2662a46e-51cc-4a09-81ce-bd27682b9501
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Created By ID
+        name: CREATED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 282ffb7c-a1ba-4aa6-b035-308610aac646
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5875ef9e-b2cc-4046-89f8-eff1ee4de22a
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Created Date
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 21ff94ae-5198-4fab-8150-5145596aca1f
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: CAST(CREATED_DATE AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e4029bf-4b10-4234-b27f-5e8f7bab73a9
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The lead’s description.
+        name: LEAD_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d671ddc3-53a7-45f4-ac03-12a7768a9cd5
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0800681f-89d0-4496-81ad-0f0cb6f5f4db
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The lead’s email address.
+        name: EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a32d948-568d-45b9-985d-584d4429a82a
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 894af41f-8f89-4938-8f4e-7469f60e71a0
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: If bounce management is activated and an email sent to the lead bounced, the date and time of the bounce.
+        name: EMAIL_BOUNCED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 204fc1aa-1c56-478f-b622-ad4e215bbac8
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: CAST("LEAD"."EMAIL_BOUNCED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2aa8514-c3e3-433c-b24d-4e87960e297d
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If bounce management is activated and an email sent to the lead bounced, the reason for the bounce.
+        name: EMAIL_BOUNCED_REASON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8ef6fed-4960-44b2-8036-c861ce9ff328
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d098635c-02e1-435d-96f4-9e35f3a91b9d
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The lead’s first name up to 40 characters.
+        name: FIRST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e1f47ae-e86e-4940-938c-0b431789adc5
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf5b9cf7-11de-4761-8c22-7bdd1344ce2b
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the lead doesn’t want to receive email from Salesforce (true) or does (false). Label is Email Opt Out.
+        name: HAS_OPTED_OUT_OF_EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41043fde-8f4d-4007-b7b1-f5dc7d549e0e
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the data privacy record associated with this lead. This field is available if you enabled Data Protection and Privacy in Setup.
+        name: INDIVIDUAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 379fa27c-d586-4772-8a0c-2bc68481a453
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9822b87e-6d8a-4243-8dfe-1a6f9f4bba40
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Industry in which the lead works.
+        name: INDUSTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f20bf239-ce76-4c10-961c-13b01dfeb34a
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f31b044-5730-4fea-a5f7-ec4f37f2a8c0
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the lead has been converted (true) or not (false). Label is Converted.
+        name: IS_CONVERTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68a66000-a2b1-400e-b9fc-24bc8d366404
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a93df417-58e1-4676-955e-3cada3c8618b
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the object has been moved to the Recycle Bin (true) or not (false). Label is Deleted.
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 457649e6-e0a6-47ad-af1e-64673c64555b
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0099bfaf-da17-4175-92a7-787410d7c82d
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: BOOLEAN
+        description: If true, lead has been assigned, but not yet viewed. See Unread Leads for more information. Label is Unread By Owner.
+        name: IS_UNREAD_BY_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b00576e2-79ac-4d9f-8458-83481cf9bf9b
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e39e0b2e-65aa-460a-b4fb-8bd9190be540
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: |
+          'Value is the most recent of either: Due date of the most recent event logged against the record. Due date of the most recently closed task associated with the record.'
+        name: LAST_ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0de32336-9ce5-4ab6-b0b7-def7d91f0060
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: CAST("LEAD"."LAST_ACTIVITY_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73ae9721-a29f-4e9e-9ec6-990dbad99bf9
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Last Modified By ID
+        name: LAST_MODIFIED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e195fa15-44c7-4b5b-b590-c3aa07f86e1c
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74a3b3a9-1f5d-446f-bb9a-7282b5b74af4
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Last Modified Date
+        name: LAST_MODIFIED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 941e4552-7ecb-4e91-a78e-e6a969ce3d28
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: CAST("LEAD"."LAST_MODIFIED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a741240c-4f7b-4daa-be9d-53411092eed8
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. Last name of the lead up to 80 characters.
+        name: LAST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e96be2de-0bbb-4ede-9abc-5a0268820a5b
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a47b85a5-9f93-48bc-8ad0-f4b6d7ba42f7
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last accessed this record, a record related to this record, or a list view.
+        name: LAST_REFERENCED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f887887-b11c-4501-84a8-3de4de7315f2
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: CAST("LEAD"."LAST_REFERENCED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd09df8b-9942-4dde-b4aa-1ab575063d1f
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last viewed this record or list view. If this value is null, the user might have only accessed this record or list view (LastReferencedDate) but not viewed it.
+        name: LAST_VIEWED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 055969ca-ea21-4f22-bc06-90e0ce016c3a
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: CAST("LEAD"."LAST_VIEWED_DATE" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f45f00e-d07f-4c6a-a893-39bd0499e620
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The lead’s source.
+        name: LEAD_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dfbea2f-63dc-4f13-887d-a32093d60f93
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4def0ae3-bf57-4c19-a181-3fd698ea008c
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If this record was deleted as the result of a merge, this field contains the ID of the record that was kept. If this record was deleted for any other reason, or has not been deleted, the value is null.
+        name: MASTER_RECORD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5094f3ee-b188-48d6-bb35-e1e6052d66a8
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf3fe754-a8ec-46af-b19f-a2f76af39a79
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The lead’s mobile phone number.
+        name: MOBILE_PHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d733d2d9-82a8-494c-9e57-9c88bec4d7ff
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e0a2b469-555a-4f88-9a8e-35977dce77e0
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Concatenation of FirstName, MiddleName, LastName, and Suffix up to 203 characters, including whitespaces.
+        name: LEAD_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df29b02f-1029-45de-b95f-db8d1c3d0c54
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d981e1f4-e5b2-498b-98df-28cfb44b355e
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Number of employees at the lead’s company. Label is Employees.
+        name: NUMBER_OF_EMPLOYEES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3db159ac-e902-4618-8001-ffe53df6213a
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e6621aa-72b8-4370-882e-3ec72b9a9870
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the lead’s owner. This is a polymorphic relationship field.
+        name: OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a70e36da-3696-4f1c-af84-f40e4a370140
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 913e882b-b6f0-4723-8d70-a3901c9772c3
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The lead’s phone number.
+        name: PHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11c53c9d-a64b-4322-b87b-937d52408a17
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37b7edae-7103-4ab1-8b0e-b1b9c22a58bc
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Postal code for the address of the lead. Label is Zip/Postal Code.
+        name: POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 589fdfbb-476d-4b04-8351-b30060b875de
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4519574e-7250-4667-892b-68c040f3d103
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: State for the address of the lead.
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9f17fba-218f-4c55-83b3-260e7bd0feeb
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e553184-4fae-49ce-bbec-4dacd8a0854e
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ISO state code for the lead’s address.
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 54e0fbb9-e3ec-4bc4-90c8-6a306459fea1
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Status code for this converted lead. Status codes are defined in Status and represented in the API by the LeadStatus object.
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58860979-c988-44ae-bcbc-8a0a6e5f8a9e
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e4b5bb9-f55e-4ae0-9909-0fde0751e54c
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Street number and name for the address of the lead.
+        name: STREET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1203da12-d0f2-4745-8b90-d00017f79bf0
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67a9422a-36fc-4b9d-a89c-32121ce9ed68
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Title for the lead, such as CFO or CEO.
+        name: TITLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e62769e-12a2-4a8f-b1ff-888c7f48f3f3
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f951bfbd-3ff9-411b-b37a-c5b4066ac318
+          stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Website for the lead.
+        name: WEBSITE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 686759d7-1986-4b32-8eee-9591478871bd
+                stepCounter: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          LEAD: 901df8f0-e5eb-4d24-a298-a51569ec34e5
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: LEAD
+        join:
+          joinCondition: |-
+            FROM {{ ref('SOURCE', 'LEAD') }} "LEAD"
+            WHERE COALESCE(CAST(NULL AS boolean),TRUE)
+            AND NOT COALESCE(is_deleted,FALSE)
+        name: STG_SALESFORCE__LEAD
+        noLinkRefs: []
+  name: STG_SALESFORCE__LEAD
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::204
+  type: sql
+  version: 1
+type: Node

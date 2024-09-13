@@ -1,0 +1,147 @@
+fileVersion: 1
+id: d897aa45-c2c8-40b4-852b-b811298a1ae5
+name: WRK_SALESFORCE__OPPORTUNITY_CLOSED
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7fc9e69c-ad2f-48d2-927f-ed8cdc25847a
+          stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CLOSE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dd548d8b-e924-4a4b-b7fe-634ba14f3dbc
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f34b4e3c-05ac-4b45-82cb-e1c6023f1c33
+          stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: OPPORTUNITIES_WON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b49e664-3eb1-437a-979e-5810d8ee334b
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: |2-
+                    count(
+                      CASE WHEN status = 'Won' THEN opportunity_id ELSE NULL END
+                    )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d28eedb-d262-46df-95f5-7130e6473b87
+          stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: OPPORTUNITIES_WON_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 430788f0-ea9c-4f86-b4a2-f39faa29ad4c
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: |2-
+                    round(
+                      sum(
+                        CASE WHEN status = 'Won' THEN amount ELSE 0 END
+                      )
+                    )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 56b055cb-2678-4ecf-aa1e-8d7304d7e883
+          stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: OPPORTUNITIES_LOST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b49e664-3eb1-437a-979e-5810d8ee334b
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: |2-
+                    count(
+                      CASE WHEN status = 'Lost' THEN opportunity_id ELSE NULL END
+                    )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 774f2814-e7be-4c58-b4f7-16c82aa96c56
+          stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: OPPORTUNITIES_LOST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 430788f0-ea9c-4f86-b4a2-f39faa29ad4c
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: |2-
+                    round(
+                      sum(
+                        CASE WHEN status = 'Lost' THEN amount ELSE NULL END
+                      )
+                    )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69781d84-7623-4d9b-986e-dd44668228c0
+          stepCounter: d897aa45-c2c8-40b4-852b-b811298a1ae5
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: PIPELINE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 430788f0-ea9c-4f86-b4a2-f39faa29ad4c
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: |2-
+                    round(
+                      sum(
+                        CASE WHEN status = 'Pipeline' THEN amount ELSE NULL END
+                      )
+                    )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          WRK_SALESFORCE__OPPORTUNITY: 6dedba00-34ae-4ec4-8815-677612161d2c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: WRK_SALESFORCE__OPPORTUNITY
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'WRK_SALESFORCE__OPPORTUNITY') }} "WRK_SALESFORCE__OPPORTUNITY"
+            GROUP BY 1
+        name: WRK_SALESFORCE__OPPORTUNITY_CLOSED
+        noLinkRefs: []
+  name: WRK_SALESFORCE__OPPORTUNITY_CLOSED
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::188
+  type: sql
+  version: 1
+type: Node

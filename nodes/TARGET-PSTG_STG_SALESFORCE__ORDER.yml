@@ -1,0 +1,650 @@
+fileVersion: 1
+id: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+name: PSTG_STG_SALESFORCE__ORDER
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: db7c8f6d-e1ce-45d2-8646-91d11baa1767
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_STG_SALESFORCE__ORDER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b48a1ae9-daf6-4b5d-8dc2-1b4aa6cf9873
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f628352-b299-4381-819b-4df110a5c046
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e6007fe2-2d37-4a13-836a-1a5ca2e025ef
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: order id
+        name: ORDER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f21f75f5-6dc1-4547-9855-995ffae371e5
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f424a06a-98f2-4c2d-b73e-27a96c664cae
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. ID of the Account associated with this order. Can only be updated when the order’s StatusCode value is Draft. This is a relationship field.
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 156374d9-ac78-497a-96bf-54723bad1ee6
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f0e990a-6bea-4cef-9d08-6b63c36d6d43
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the User who activated this order. This is a relationship field.
+        name: ACTIVATED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1f6ba95-8fbc-459c-b977-ca18993d5644
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a043981-bb4f-4c98-aea0-c85ef2da4062
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Date and time when the order was activated.
+        name: ACTIVATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c83ecc9d-bd7f-49c1-a9b2-1ba962c6b3f1
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: adabee72-eef1-4238-bda3-39b191db015a
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: City for the billing address for this order. Maximum size is 40 characters.
+        name: BILLING_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe365cad-0bf3-492c-bca5-7f9c445e1529
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3e8b880-7328-4f7d-87aa-7126ba1a3c55
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Country for the billing address for this order. Maximum size is 80 characters.
+        name: BILLING_COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 25865023-c979-4f04-b9c1-1687a777b4e3
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 108edbc7-3d7e-427b-84a4-c1d31ce58785
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ISO country code for the billing address for this order.
+        name: BILLING_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c306e0c-37b3-477d-be8c-148387daf98e
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b57e86b-492b-483c-85ee-5b19a4abccc0
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Postal code for the billing address for this order. Maximum size is 20 characters.
+        name: BILLING_POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3ae4e2ea-5c83-4665-9b51-ac1d4eb54d06
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5459c031-4003-4317-b5f8-992176b1aecd
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: State for the billing address for this order. Maximum size is 80 characters.
+        name: BILLING_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e28b24d-fb8c-4c08-83e9-3d21c0dc4432
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 517e5a79-d5db-4cdd-8230-5f94ea8caafa
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ISO state code for the order’s billing address.
+        name: BILLING_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 611d421e-615f-4c0c-9274-d12f409e1ee2
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5fa04ef7-ce96-44c2-94f3-fe5a9705f2bd
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Street address for the billing address.
+        name: BILLING_STREET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f613300-cc39-4558-a792-eb5414212d0d
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a0a94c87-a76e-41a6-a917-b8141ddefff7
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the contract associated with this order. Can only be updated when the order’s StatusCode value is Draft. This is a relationship field.
+        name: CONTRACT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7eb35694-a9ab-4e84-976c-ae1494a6e0f6
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ed1fe97-01fc-4850-89ec-3272694bc607
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Created By ID
+        name: CREATED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 93a0dca9-dfb2-4242-9181-c1a6c5fca897
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0aac96e-4936-4f83-bbfb-697a70272260
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Created Date
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 94aa34ad-7c70-4768-8556-429644c16b7d
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 943727f3-29ce-4f02-aaf5-37565b081368
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Description of the order.
+        name: ORDER_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 548d1a21-1ff3-49c7-b6d4-97550c6d0e68
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57419309-1174-4206-ad94-97f79efee803
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Date at which the order ends. Label is Order End Date.
+        name: END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 65abe4e6-bd74-4eff-8c1a-463d4dc8ee25
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d2c85b7-028f-4075-b707-3731071b1b5f
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: BOOLEAN
+        description: deleted
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f952394-25a3-433f-b7a4-824468875c01
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b5753c0-889e-4300-8ecf-9dc06defc315
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Last Modified By ID
+        name: LAST_MODIFIED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 34cec617-9d46-4539-ba68-345e0b928718
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f96d76e-6440-4c5e-ac88-16d609198e81
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Last Modified Date
+        name: LAST_MODIFIED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90fa003f-fb60-4779-ba8f-f1a4cf9462ae
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 681a7474-713b-4ec2-bbd4-084e99662384
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last accessed this record, a record related to this record, or a list view.
+        name: LAST_REFERENCED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b97af13d-82f6-4d56-be20-34bc0ee1752d
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 51ede701-1857-499e-afd1-7b918a3cbc69
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The timestamp when the current user last viewed this record or list view. If this value is null, the user might have only accessed this record or list view (LastReferencedDate) but not viewed it.
+        name: LAST_VIEWED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dcd2c5ba-045e-4ae0-b6a5-52ef212187e7
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41632aa8-6261-44b2-bfb2-371cb1847483
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID for the opportunity that’s associated with this order.
+        name: OPPORTUNITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f9b76fe5-f132-43f9-9f32-664ccac5892d
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e90cbc9-e8ee-4c4d-9950-5ad02f819ae0
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Order number assigned to this order (not the unique, system-generated ID assigned during creation). Maximum size is 30 characters.
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b49b0b41-7e3e-48d8-88a5-7ac5f5688da4
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f74567f5-f8af-4580-9701-2eb1e8b582b2
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Optional. ID of the original order that a reduction order is reducing, if the reduction order is reducing a single order. Label is Original Order. Editable only if isReductionOrder is true. If the reduction order is reducing more than one order, leave blank. This is a relationship field.
+        name: ORIGINAL_ORDER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a048ec85-5033-409c-8248-50e5bef03782
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5840fc5-c018-4842-89a4-12b99ec60f38
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. ID of the User or queue that owns this order. This is a polymorphic relationship field.
+        name: OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1fcc4e01-9578-415c-8243-5504127e8cc4
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43cae04a-8104-4eac-90a7-28532fd6ec89
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. ID of the price book associated with this order. This is a relationship field.
+        name: PRICEBOOK_2_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be6346e8-99a5-4f13-869b-4197b55d3d7e
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0eed1f3d-bfe5-4962-923e-7bda86adeef1
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: City of the shipping address. Maximum size is 40 characters.
+        name: SHIPPING_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e9c2377-17d1-43c8-85d9-ac550e2205e5
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 87df6cd6-4913-4f35-927a-0148a5bd91dd
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Country of the shipping address. Maximum size is 80 characters.
+        name: SHIPPING_COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d3ddb34-3650-4817-bc84-bf90851cb5c4
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 959fe78b-a869-4619-98ca-d8431a67f24f
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ISO country code for the order’s shipping address.
+        name: SHIPPING_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b51ed97-307d-477f-b085-2953e35fec89
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91d47cb9-b705-4383-89c7-6efaa33d9896
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Postal code of the shipping address. Maximum size is 20 characters.
+        name: SHIPPING_POSTAL_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ee0bebb1-9be8-44d8-a520-a3935fb76bd8
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84dd50c1-6310-4d3b-9a1d-21bf609d5ffc
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: State of the shipping address. Maximum size is 80 characters.
+        name: SHIPPING_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5cbe07c-8b2f-40a1-911c-5c69a604f440
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 298e4654-a35a-4dfd-83ad-c2ec95cfbe17
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ISO state code for the order’s shipping address.
+        name: SHIPPING_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52b4f62f-1f85-4efc-a2c9-828f523e5a37
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a48de545-2014-4f81-b3f3-80739f9ff71d
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Street address of the shipping address. Maximum of 255 characters.
+        name: SHIPPING_STREET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 692ab6b3-82fd-41e7-a860-57923e6df4ac
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dfe6b806-9a6e-4b37-9e69-d8f7dc211efe
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Picklist of values that indicate order status. Each value is within one of two status categories defined in StatusCode. For example, the status picklist might contain Draft, Ready for Review, and Ready for Activation values with a StatusCode of Draft.
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6b37a9e-a539-4caf-84a3-f841191cb408
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e276044b-4696-4713-8d0d-3512743c9074
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The total amount for the order products associated with this order. This field is available in API v48.0 and later.
+        name: TOTAL_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d08134c-f179-496d-9143-77cc4e764307
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f8de4bb-cee9-47a9-8dae-058dc8318024
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If you want to show more information about your order, you can add custom values to the Type picklist. By default, the Type field doesn't perform any actions or show any values.
+        name: TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 876d3a1d-3932-4fcb-999c-d9a641d8f128
+                stepCounter: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bd5b383-977f-4324-b203-fc3c6e656df8
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64c7ec40-d0c1-4311-a180-1f2cd6b8d416
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9948422-3c50-4bc9-98e4-c279c7e429e6
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1661911-aaed-4956-907b-bcfe3de9d5ec
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de6865bd-73f7-4761-a01c-952f94364d47
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1fa5600c-4a43-43bb-8ee4-b68c9df81d7a
+          stepCounter: 68ff9ddc-260e-4ff8-a871-71c012ecfde6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__ORDER
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__ORDER') }} "STG_SALESFORCE__ORDER"
+        name: PSTG_STG_SALESFORCE__ORDER
+        noLinkRefs: []
+  name: PSTG_STG_SALESFORCE__ORDER
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

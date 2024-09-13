@@ -1,0 +1,548 @@
+fileVersion: 1
+id: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+name: SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Each record represents a line item belonging to a certain opportunity, with additional product details.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c150a257-dac0-450b-b049-83f69213389e
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unique id for each record.
+        name: OPPORTUNITY_LINE_ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 701b008b-78a9-48bf-8b24-5d92ed3ba1db
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed081558-9d6d-490b-b9d5-96f002681080
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique name for each opportunity line item.
+        name: OPPORTUNITY_LINE_ITEM_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9fc1b2ea-4b1e-43b1-903f-a5522fe2584f
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 423bad16-50a0-4ebb-838e-1d314c52956a
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Text description of the opportunity line item.
+        name: OPPORTUNITY_LINE_ITEM_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eb2037aa-d22b-4145-af2d-852cc2368409
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e57ae23-56f3-4675-9de1-66d75da3509f
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the associated Opportunity.
+        name: OPPORTUNITY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 368f57c9-a7d9-4092-a8f4-82b29f672710
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 81665270-2f62-4f3e-acc0-5217038ddd94
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: The index number of the specific line item, relative to all line items in that opportunity.
+        name: LINE_ITEM_INDEX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 368f57c9-a7d9-4092-a8f4-82b29f672710
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+              - columnCounter: cee92c8e-e609-4fee-9485-7c53361736ef
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: |-
+              ROW_NUMBER() OVER (
+                      PARTITION BY STG_SALESFORCE__OPPORTUNITY_LINE_ITEM.OPPORTUNITY_ID 
+                      ORDER BY 
+                        STG_SALESFORCE__OPPORTUNITY_LINE_ITEM.created_date
+                    )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3de26f63-f981-4e22-ba99-4ce6756c72d0
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: NUMBER(18,0)
+        description: The total number of line items belonging to the same opportunity.
+        name: TOTAL_LINE_ITEMS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 368f57c9-a7d9-4092-a8f4-82b29f672710
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+              - columnCounter: 701b008b-78a9-48bf-8b24-5d92ed3ba1db
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: "count(opportunity_line_item_id) OVER (PARTITION BY STG_SALESFORCE__OPPORTUNITY_LINE_ITEM.opportunity_id) "
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82635557-78c3-4b2d-8b87-5e772c077181
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Created date.
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cee92c8e-e609-4fee-9485-7c53361736ef
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 133c3db7-35c5-404b-8cfd-68c1be8ae1cc
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Last Modified Date.
+        name: LAST_MODIFIED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0035437c-3770-4c5e-b266-eb20c72d3e12
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2040d33-da13-4c4a-a4a8-3c5ff791ef9a
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Date when the product revenue will be recognized and the product quantity will be shipped. Opportunity Close Date—ServiceDate is ignored.
+        name: SERVICE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e7e5a9da-b1fa-4d1d-9362-0aafd1e6041d
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b00dba5-c4c2-45d7-a100-eb65f64391d0
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the associated PricebookEntry. Exists only for those organizations that have Products enabled as a feature. In API versions 1.0 and 2.0, you can specify values for either this field or ProductId, but not both. For this reason, both fields are declared nillable. In API version 3.0 and later, you must specify values for this field instead of ProductId. This is a relationship field.
+        name: PRICEBOOK_ENTRY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b10ad173-9538-47f4-a1ff-88f9d73c6a78
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b23da589-92cd-4f4d-8d82-d7a81ce93f97
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: |-
+          The ID of the related Product2 record. This is a read-only field available in API version 30.0 and later.
+          Use the PricebookEntryId field instead, specifying the ID of the PricebookEntry record.
+        name: PRODUCT_2_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6189792-a583-446f-a940-c787f0eebbe8
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 060d36b9-5974-4e84-bf41-70031c4435f9
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Corresponds to the UnitPrice on the PricebookEntry that is associated with this line item, which can be in the standard price book or a custom price book. A client application can use this information to show whether the unit price (or sales price) of the line item differs from the price book entry list price.
+        name: LIST_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 657c2345-68cc-43df-aece-6ef71c28910a
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7afe730-246b-4888-8fd2-d8186484ede1
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: FLOAT
+        description: |-
+          Read-only if this record has a quantity schedule, a revenue schedule, or both a quantity and a revenue schedule.
+          When updating these records:
+          If you specify Quantity without specifying the UnitPrice, the UnitPrice value will be adjusted to accommodate the new Quantity value, and the TotalPrice will be held constant.
+          If you specify both Discount and Quantity, you must also specify either TotalPrice or UnitPrice so the system can determine which one to automatically adjust.
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d5b3618-e520-46b6-879f-d39c41b268ce
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9df8c35b-d556-4eff-99ad-d2d2e81d46b8
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: NUMBER(28,6)
+        description: |-
+          The unit price for the opportunity line item. In the Salesforce user interface, this field’s value is calculated by dividing the total price of the opportunity line item by the quantity listed for that line item. Label is Sales Price.
+          This field or TotalPrice is required. You can’t specify both.
+
+          If you specify Discount and Quantity, this field or TotalPrice is required.
+        name: UNIT_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3571b737-ee73-439d-bb00-2444669cdef3
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9178c6b6-07e4-49e2-8f49-dafff7046bee
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: NUMBER(28,6)
+        description: |-
+          This field is available only for backward compatibility. It represents the total price of the OpportunityLineItem.
+          If you do not specify UnitPrice, this field is required. If you specify Discount and Quantity, this field or UnitPrice is required. When updating these records, you can change either this value or the UnitPrice, but not both at the same time.
+
+          This field is nullable, but you can’t set both TotalPrice and UnitPrice to null in the same update request. To insert the TotalPrice via the API (given only a unit price and the quantity), calculate this field as the unit price multiplied by the quantity. This field is read-only if the opportunity line item has a revenue schedule. If the opportunity line item does not have a schedule or only has quantity schedule, this field can be updated.
+        name: TOTAL_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63056d54-cb3d-4769-9642-77430a3744ad
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 734cdf43-3a3f-4010-b2f5-62f5c182a6e9
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether a quantity schedule has been created for this object (true) or not (false).
+        name: HAS_QUANTITY_SCHEDULE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a948718-5d85-4981-b352-65a43ffb4b3e
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79521140-17c1-4ad5-b3ed-3ec8c89bb239
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether a revenue schedule has been created for this object (true) or not (false). If this object has a revenue schedule, the Quantity and TotalPrice fields can’t be updated. In addition, the Quantity field can’t be updated if this object has a quantity schedule. Update requests aren’t rejected but the updated values are ignored.
+        name: HAS_REVENUE_SCHEDULE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11a8b17f-ea25-41de-8fe8-c054a3c2d8c6
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 218b0780-9ca1-4887-b89d-03efe4d2d08f
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Default name of the product.
+        name: PRODUCT_2_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a631ebb4-d19a-4ea7-a4a0-793d445776be
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c5458533-7acf-4c2e-856a-84d28eddaf22
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: This read-only field is available in API version 30.0 and later. It references the value in the ProductCode field of the related Product2 record.
+        name: PRODUCT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 08fe5cc6-c7c4-4b36-b56b-6fe936aa8e4f
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 56461e07-250c-4e85-befe-caf084ba6bb0
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: A text description of the product.
+        name: PRODUCT_2_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e031027-8c5b-4fab-a494-19f815a3b89b
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a224ef00-80bc-4f5a-9f09-97d566d46aef
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: "The unique identifier of the product in the linked external data source. For example, ID #123."
+        name: PRODUCT_EXTERNAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 146fff8d-faa6-4c9f-a513-0f76e6473cc6
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdd210f7-a8bc-435c-9a09-5cb55fe5dde3
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Name of the product family associated with this record. Product families are configured as picklists in the user interface. To obtain a list of valid values, call describeSObjects() and process the DescribeSObjectResult for the values associated with the Family field. Label is Product Family.
+        name: PRODUCT_FAMILY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6ecdaf38-f8ac-4289-af1f-56a8c5f7ecec
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8a2af80-3898-4762-afc0-a9daab9ac01a
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether product is active (true) or not (false). Inactive Product2 records are hidden in many areas in the user interface. You can change the IsActive flag on a Product2 object as often as necessary. Label is Active.
+        name: PRODUCT_IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8c19ae5-6fa3-49e4-a179-ab1e9532dc22
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d040a39-11b7-42a4-88d0-a1e004088a6c
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: BOOLEAN
+        description: Describes whether the product is archived. The default value is false.
+        name: PRODUCT_IS_ARCHIVED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: edd86cd0-d9d8-492f-aa28-812376017a54
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ffd46d6-75a6-4bb8-81e7-642e1aa99b5c
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the object has been moved to the Recycle Bin (true) or not (false). Label is Deleted.
+        name: PRODUCT_IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3db32151-d33f-46cb-8fc8-7b8b66498ed1
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec111302-8720-4a50-8819-ba9c9826dc30
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: If the product has a quantity schedule, the number of installments.
+        name: PRODUCT_NUMBER_OF_QUANTITY_INSTALLMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 846eaa3a-a0d3-4816-bc40-37664fbbe841
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9201f50-738d-4e4e-87f8-1de616dd78ca
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If the product has a quantity schedule, the amount of time covered by the schedule.
+        name: PRODUCT_QUANTITY_INSTALLMENT_PERIOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5530f4e1-ae4b-41a1-b85a-c7648fcbd7e3
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad1a1925-239c-4883-af7c-8f0aee2db37d
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The type of the quantity schedule, if the product has one.
+        name: PRODUCT_QUANTITY_SCHEDULE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 373e27b5-0156-4ea7-8a91-feeabc8e0ae9
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4172d04b-eea8-42bf-a1dc-134277785063
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Unit of the product; for example, kilograms, liters, or cases. This field comes with only one value, Each, so consider creating your own. The QuantityUnitOfMeasure field on ProductItem inherits this field’s values.
+        name: PRODUCT_QUANTITY_UNIT_OF_MEASURE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7bad9a8e-fa71-44e5-9f05-c09cd463fde6
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 843309f0-37a3-4e35-8d87-60905ca23efe
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: If the product has a revenue schedule, the number of installments.
+        name: PRODUCT_NUMBER_OF_REVENUE_INSTALLMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a5084bc9-76cd-4d82-87a8-13b8ba44cf6f
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed51768e-8a86-4724-9d6b-a8e3ba8df829
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: If the product has a revenue schedule, the time period covered by the schedule.
+        name: PRODUCT_REVENUE_INSTALLMENT_PERIOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0644443-30a1-47d2-ba61-b11b2539eb16
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f093148d-9599-4f42-a44b-8af89e476058
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The type of the revenue schedule, if the product has one.
+        name: PRODUCT_REVENUE_SCHEDULE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fee93ebf-60ba-46d4-9556-97b19f8c4370
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a380f0cd-c641-47a8-a720-e791d92a79e8
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED_OPPORTUNITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9364f1ae-fe54-46e0-8bea-4573c7385c18
+                stepCounter: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b488c47-3725-4d76-be66-6097ad6da152
+          stepCounter: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED_PRODUCT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d575f1d4-b281-4b0b-aa49-7f1409e37198
+                stepCounter: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_SALESFORCE__OPPORTUNITY_LINE_ITEM: 8d8defbb-705e-4b0f-ae69-f58c8752d219
+          STG_SALESFORCE__PRODUCT_2: 70e122da-7cde-47e1-8b14-6f9bfcec4d9c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__OPPORTUNITY_LINE_ITEM
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__PRODUCT_2
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'STG_SALESFORCE__OPPORTUNITY_LINE_ITEM') }} "STG_SALESFORCE__OPPORTUNITY_LINE_ITEM"
+            LEFT JOIN {{ ref('STAGE', 'STG_SALESFORCE__PRODUCT_2') }} "STG_SALESFORCE__PRODUCT_2"
+            ON "STG_SALESFORCE__OPPORTUNITY_LINE_ITEM".PRODUCT_2_ID = "STG_SALESFORCE__PRODUCT_2".PRODUCT_2_ID
+        name: SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED
+        noLinkRefs: []
+  name: SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::173
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,156 @@
+fileVersion: 1
+id: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+name: WV_INT_AGG_LOST_BY_OWNER
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c170d327-a4c2-4a3b-93af-15c9cb24510d
+          stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: L_MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49618e96-790d-404a-9320-c035a6bf98a9
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1503bbf1-794f-463b-ab86-b29a010f6051
+          stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: L_OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 62271b22-e1b3-472f-a980-5123472a2c61
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b59fdf7-3d2c-44b5-8790-b460cff85e44
+          stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: LOST_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d41cc0b-c893-41cb-a5b7-26ccbc4964c2
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM( "SALESFORCE__OPPORTUNITY_ENHANCED"."CLOSED_AMOUNT_THIS_MONTH"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5803a92b-0754-4fca-8122-97cecd0059d5
+          stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: LOST_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3afca50e-50b7-47e2-b586-4894355f9583
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM( "SALESFORCE__OPPORTUNITY_ENHANCED"."CLOSED_AMOUNT_THIS_QUARTER"))
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fa37bf50-c076-4efa-aaa6-a5e7482c3bec
+          stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: TOTAL_NUMBER_LOST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(*)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ea2f0e0-7bd9-46ea-8f3f-07a1c5d32b2e
+          stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: TOTAL_LOST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM( "SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 54279492-e1d0-47cf-9bd8-a5def30f4a75
+          stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        name: LOST_COUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c606646-a152-4c48-ba40-7ad1235f447d
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CLOSED_COUNT_THIS_MONTH")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2909a198-4f38-44f2-94bc-b42148f5d02c
+          stepCounter: 9760424d-6bf9-4ca3-b018-0b345d7e156d
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        name: LOST_COUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a662bad-75a5-4c16-8a4f-931a2cf39bfc
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CLOSED_COUNT_THIS_QUARTER")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALESFORCE__OPPORTUNITY_ENHANCED: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OPPORTUNITY_ENHANCED
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'SALESFORCE__OPPORTUNITY_ENHANCED') }} "SALESFORCE__OPPORTUNITY_ENHANCED"
+            WHERE STATUS = 'Lost'
+            GROUP BY 1, 2
+        name: WV_INT_AGG_LOST_BY_OWNER
+        noLinkRefs: []
+  name: WV_INT_AGG_LOST_BY_OWNER
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::188
+  type: sql
+  version: 1
+type: Node

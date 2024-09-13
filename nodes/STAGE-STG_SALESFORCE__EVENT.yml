@@ -1,0 +1,458 @@
+fileVersion: 1
+id: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+name: STG_SALESFORCE__EVENT
+operation:
+  config:
+    groupByAll: false
+    incColumn:
+      columnCounter: c7373b54-f5c1-4762-b7b1-bf5ed91a1fc1
+      stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+    insertStrategy: INSERT
+    orderby: false
+    persistTableLocation: TARGET
+    persistTableName: PSTG_STG_SALESFORCE__EVENT
+    postSQL: ""
+    preSQL: ""
+    refTable: true
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7373b54-f5c1-4762-b7b1-bf5ed91a1fc1
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f5b6a64-332a-4efe-942d-d712630d36e8
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: CAST(_FIVETRAN_SYNCED AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c8449b4-946a-4c44-aaed-cf2f0bed5ec4
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation.
+        name: EVENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 932d466c-5c92-4f31-a1c1-7bad37719bf8
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02d132d1-5c2f-4757-906f-a802c2b9c1f7
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: |
+          Represents the ID of the related account. The AccountId is determined as follows. If the value of WhatId is any of the following objects, then Salesforce uses that object’s AccountId.
+          Account Opportunity Contract Custom object that is a child of Account If the value of the WhatId field is any other object, and the value of the WhoId field is a contact object, then Salesforce uses that contact’s AccountId. (If your org uses Shared Activities, Salesforce uses the AccountId of the primary contact.)
+          Otherwise, Salesforce sets the value of the AccountId field to null.
+          For information on IDs, see ID Field Type.
+          This is a relationship field.
+        name: ACCOUNT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 89d11bf8-9f5a-4a04-a715-18cf7663a917
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c93cc58-2952-487e-a434-62401beda9bd
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: |
+          Contains the event’s due date if the IsAllDayEvent flag is set to true. This field is a date field with a timestamp that is always set to midnight in the Coordinated Universal Time (UTC) time zone. Don’t attempt to alter the timestamp to account for time zone differences. Label is Due Date Only. This field is required in versions 12.0 and earlier if the IsAllDayEvent flag is set to true.
+          The value for this field and StartDateTime must match, or one of them must be null.
+        name: ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f99e76a-d110-4233-b533-2b6700ddaada
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e90df822-acb4-4ebf-82fe-a38e532f484f
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: |
+          Contains the event’s due date if the IsAllDayEvent flag is set to false. The time portion of this field is always transferred in the Coordinated Universal Time (UTC) time zone. Translate the time portion to or from a local time zone for the user or the application, as appropriate. Label is Due Date Time. This field is required in versions 12.0 and earlier if the IsAllDayEvent flag is set to false.
+          The value for this field and StartDateTime must match, or one of them must be null.
+        name: ACTIVITY_DATE_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: adf66a77-178c-4b79-b36d-c52ff5bcff93
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: CAST(ACTIVITY_DATE_TIME AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35b17093-452a-4164-9059-e298fbc729eb
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Created By ID
+        name: CREATED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f0dc627-a1be-416c-be53-e7720877fc06
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83d28d59-4e59-4d1a-b8fc-9735524d8eeb
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Created Date
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: abef5128-858b-45c0-b1c6-96343b3f9bee
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: CAST(CREATED_DATE AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ddc775a2-5099-482b-af00-b774a7f79c30
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Contains a text description of the event.
+        name: EVENT_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 65b31a6b-bd4a-4b93-a39d-d11dc4ef318a
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8e21b80-30ab-40b5-837d-29372b448ddd
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Read-only. Available in versions 46.0 and later. This field supplies the date value that appears in the EndDateTime field. This field is a date field with a timestamp that is always set to midnight in the Coordinated Universal Time (UTC) time zone.
+        name: END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 694f52a6-f9f6-411f-bc59-b62c073d7410
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: CAST(END_DATE AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc29dcba-768b-4598-aacd-59dc63c5047e
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Available in versions 13.0 and later. The time portion of this field is always transferred in the Coordinated Universal Time (UTC) time zone. Translate the time portion to or from a local time zone for the user or the application, as appropriate.
+        name: END_DATE_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a01825a0-3569-40c7-bbe7-ce352599b9b6
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: CAST(END_DATE_TIME AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19b34a1d-7209-4077-9619-3749da7d1687
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Provides standard subtypes to facilitate creating and searching for events. This field isn’t updateable.
+        name: EVENT_SUBTYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 851c9db9-4701-45be-b08c-856659e799c0
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 30a967f8-1fae-45f0-93bf-b0b392f84f5d
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Group Event Type
+        name: GROUP_EVENT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27b85ba4-a1db-41dc-b50d-83b8dca27687
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c382a3d-6911-4264-ba4b-581c234e8035
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the event has been archived.
+        name: IS_ARCHIVED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5dacfe7e-8474-4249-b836-12ee03c0d1d2
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 881c9d95-75ca-4f2e-873a-8e9a35c9bcf8
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the event is a child of another event (true) or not (false). For a child event, you can update IsReminderSet and ReminderDateTime only. You can query and delete a child event. If the objects related to the child event are different from those objects related to the parent event (this difference is possible if you use API version 25.0 or earlier) and one of the objects related to the child event is deleted, the objects related to the parent event are updated to ensure data integrity.
+        name: IS_CHILD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc892a92-d50a-410a-bfa2-df05e82de76e
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31f7fff4-4331-477b-bf32-41fa9803be07
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: BOOLEAN
+        description: Deleted
+        name: IS_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8be6dd3a-0143-4aed-886a-b2ee50b1f286
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76463af0-d53b-44b7-9fd8-3aeb7109f417
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether the event is a group event—that is, whether it has invitees (true) or not (false).
+        name: IS_GROUP_EVENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 693ecb8d-009b-4bed-a3af-66267c8f7dc0
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4f73ac1-bdf9-4565-ae39-90998c9ab53d
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: BOOLEAN
+        description: Indicates whether a Salesforce Classic event is scheduled to repeat itself (true) or only occurs one time (false). This field is read-only when updating records, but not when creating them. If this field value is true, then RecurrenceEndDateOnly, RecurrenceStartDateTime, RecurrenceType, and any recurrence fields associated with the given recurrence type must be populated. Label is Create recurring series of events.
+        name: IS_RECURRENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: edfe9c7c-b9e8-4ac9-9764-cbbda48bb1c8
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f8d5163-6f1e-46cb-96cc-0e637d2da66a
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Last Modified By ID
+        name: LAST_MODIFIED_BY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19fd1e54-49a6-494e-a17a-c762be086c42
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f24dbaca-37b5-462a-b155-0780f22f329e
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: Last Modified Date
+        name: LAST_MODIFIED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71b11694-b1cd-4de9-83c7-ca80b98264c9
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: CAST(LAST_MODIFIED_DATE AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de26eff7-dea5-4893-a2cc-0b397fc2e9c5
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Contains the location of the event.
+        name: LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f5ce6ecc-13fb-421e-ac29-5d0494535d51
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c256667-4553-4d37-a178-93b585119c32
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Contains the ID of the user or public calendar who owns the event. Label is Assigned to ID. This is a polymorphic relationship field.
+        name: OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 856a1668-b7fb-44b5-a3d2-a3beb49a9a13
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24c921e8-4112-4a8f-b4c5-8d36cef85ce6
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: |
+          Indicates the start date and time of the event. Available in versions 13.0 and later.
+          If this field has a value, then ActivityDate and ActivityDateTime must either be null or match the value of this field.
+        name: START_DATE_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3045d6a5-1102-4c3b-8e9a-79b35228903f
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: CAST(START_DATE_TIME AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6ea1f5e-be5e-4bf8-802a-39e41a4550c0
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The subject line of the event, such as Call, Email, or Meeting.
+        name: SUBJECT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f76aa847-1e55-4736-8cd4-857161aa36db
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dbba13b3-d3a5-4205-92ea-dc08fa0db543
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Indicates the event type, such as Call, Email, or Meeting.
+        name: TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03bd4311-e299-44e9-b169-a30d00f3806e
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ccc5b649-752c-455c-a170-bc506263a678
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Available if your organization has enabled Shared Activities. Represents the count of related EventRelations pertaining to the WhatId. The count of the WhatId must be 1 or less.
+        name: WHAT_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5efcd78-83a0-425c-94b2-bae2b5b1e217
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The WhatId represents nonhuman objects such as accounts, opportunities, campaigns, cases, or custom objects. WhatIds are polymorphic. Polymorphic means a WhatId is equivalent to the ID of a related object. The label is Related To ID. This is a polymorphic relationship field.
+        name: WHAT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 64240291-317c-46cc-a0f6-9d73ac8eb052
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c13bc8e-8ef2-4303-b1da-c5873bb50ffc
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Available to organizations that have Shared Activities enabled. Represents the count of related EventRelations pertaining to the WhoId.
+        name: WHO_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 223655a3-2b2a-41f7-b0be-41e56e8b316b
+          stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: |
+          The WhoId represents a human such as a lead or a contact. WhoIds are polymorphic. Polymorphic means a WhoId is equivalent to a contact’s ID or a lead’s ID. The label is Name ID.
+        name: WHO_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 415e7427-ccad-48ad-9242-aeabc5259b2e
+                stepCounter: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          EVENT: 7cd3cba2-9cfc-44c1-bbe5-8641498c1f0a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: EVENT
+        join:
+          joinCondition: |
+            FROM{{ ref('SOURCE', 'EVENT') }} "EVENT"
+              WHERE "EVENT"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_STG_SALESFORCE__EVENT') }} )
+        name: STG_SALESFORCE__EVENT
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_STG_SALESFORCE__EVENT
+  name: STG_SALESFORCE__EVENT
+  overrideSQL: false
+  schema: ""
+  sqlType: INC:::230
+  type: sql
+  version: 1
+type: Node

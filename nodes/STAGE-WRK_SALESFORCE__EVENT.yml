@@ -1,0 +1,70 @@
+fileVersion: 1
+id: 12bebd98-814f-431e-871e-7106b77f7ea8
+name: WRK_SALESFORCE__EVENT
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06237fb0-bb12-493d-bbbe-74be2989d419
+          stepCounter: 12bebd98-814f-431e-871e-7106b77f7ea8
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c9d2e51-cde6-4fda-864e-bf959dc1358b
+                stepCounter: 6d84c4ec-6c19-40cd-88b3-d43f10b5cc65
+            transform: COALESCE(DATE_TRUNC('DAY',"PSTG_SALESFORCE__EVENT"."ACTIVITY_DATE"),DATE_TRUNC('DAY',"PSTG_SALESFORCE__EVENT"."ACTIVITY_DATE_TIME"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49df24ac-a46c-488b-842b-d20def253aec
+          stepCounter: 12bebd98-814f-431e-871e-7106b77f7ea8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENTS_COMPLETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce25928b-ea64-46f6-a543-e09d94c316f0
+                stepCounter: 6d84c4ec-6c19-40cd-88b3-d43f10b5cc65
+            transform: COUNT("PSTG_SALESFORCE__EVENT"."EVENT_ID")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_SALESFORCE__EVENT: 6d84c4ec-6c19-40cd-88b3-d43f10b5cc65
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_SALESFORCE__EVENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_SALESFORCE__EVENT') }} "PSTG_SALESFORCE__EVENT"
+            GROUP BY 1
+        name: WRK_SALESFORCE__EVENT
+        noLinkRefs: []
+  name: WRK_SALESFORCE__EVENT
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT:::188
+  type: sql
+  version: 1
+type: Node
