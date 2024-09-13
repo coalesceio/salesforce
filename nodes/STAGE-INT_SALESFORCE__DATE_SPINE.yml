@@ -7,10 +7,7 @@ operation:
     daysToGenerate: "10000"
     postSQL: ""
     preSQL: ""
-    startingDate: |-
-      /*(select coalesce(greatest(max(cast(created_date as date)), cast(current_date as date)),cast(current_date as date)) as max_date from {{ ref('STAGE', 'STG_SALESFORCE__LEAD') }} */
-      
-      '2022-01-14'
+    startingDate: "'2022-01-14'"
     truncateBefore: true
   database: ""
   deployEnabled: true
