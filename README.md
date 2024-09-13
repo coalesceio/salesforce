@@ -52,7 +52,7 @@ Select an owner and give your repository a name.
 
 After the import is complete you will see two branches available:
 
-- **salesforce_dynamic_model** - This is an entire pipeline of Dynamic Tables to manage the Jira pipeline.
+- **salesforce_dynamic_model** - This is an entire pipeline of Dynamic Tables to manage the Salesforce pipeline.
 - **salesforce_incremental** - This is a pipeline built with an incremental node that loads the incremental data.
 
 Either branch can be selected when setting up a Workspace which will be described below.
@@ -87,24 +87,24 @@ In this section you will configure the following Workspace settings:
 - **Workspace** - Configure Settings, User Credentials, Storage Mappings and Parameters
 
 ### Build Settings
-Build Settings changes are required for both the `salesforce_dynamic_model ` and `salesforce_incremental` versions of the Jira pipeline.
+Build Settings changes are required for both the `salesforce_dynamic_model ` and `salesforce_incremental` versions of the Salesforce pipeline.
 
 #### Storage Locations
-The pipeline equires four Storage Locations be created.
-- **TGT (Default Location)** - The final output of the pipeline is stored in the `TGT` location.  
-- **SRC** - Source location where Fivetran replicated tables are locations
-- **STG** - Staging location where views are stored for staging Fivetran replicated data.  Simple things like universal filters could be applied at this layer.
+The pipeline equires four Storage Locations be created.  
+- **SOURCE** - Source location where Fivetran replicated tables are locations
+- **STAGE (Default Location)** - Staging location where views are stored for staging Fivetran replicated data.  Simple things like universal filters could be applied at this layer.
+- **TARGET** - The final output of the pipeline is stored in the `Target` location.
 
 #### Environments
 Environments must be configured in order to deploy pipeline to higher level environments (QA, UAT, Pre-Prod, Prod, etc.) based on how you are managing your environments.
 
 ### ⚙️Workspace Settings
-The only difference between the `salesforce_dynamic_model ` and `salesforce_incremental` versions of the Jira pipeline is that the jira_dynamic_table version requires some parameters to be created and set.  Other than that the configuration is the same between them.
+The only difference between the `salesforce_dynamic_model ` and `salesforce_incremental` versions of the salesforce pipeline is that the salesforce_dynamic_table version requires some parameters to be created and set.  Other than that the configuration is the same between them.
 
 - **Settings** - Configure the Snowflake account that Coalesce will be utilizing
 - **User Credentials / OAuth Settings** - Enter the credentials required to connect to Snowflake
 - **Storage Mappings** - This can be configured to use one database / schema for all Storage Locations or up to four database / schema mappings, one for each Storage Location, depending on whether or not you want to seperate Source, Staging, Intermediate and Target objects.
-- **Parameters** - The Dynamic Tables in the Jira pipeline require two Parameters to function.  
+- **Parameters** - The Dynamic Tables in the Salesforce pipeline require two Parameters to function.  
 
     The first, `targetDynamicTableWarehouse` is the standard Dynamic Table Parameter described in the Dynamic Table Package documentation.  
     
@@ -169,6 +169,6 @@ The Coalesce team maintaining this package _only_ maintains the latest version o
 A small team of analytics engineers at Coalesce develops these pipelines. However, the pipelines are made better by community contributions! 
 
 # 🏪 Are there any resources available?
-- If you have questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/coalesceio/jira/issues) section to find the right avenue of support for you.
+- If you have questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/coalesceio/salesforce/issues) section to find the right avenue of support for you.
 - If you would like to provide feedback to the Coalesce pipeline team or would like to request a new Coalesce pipeline, fill out our [Feedback Form](https:tbd).
 - Any other questions about Coalesce then check out our [Help Center](https://help.coalesce.io/)
