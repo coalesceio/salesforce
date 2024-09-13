@@ -30,7 +30,6 @@ You can also refer to the table below for a detailed view of all models material
 | **<span style="color:green">salesforce__opportunity_enhanced</span>**            | Each record represents an opportunity, enriched with related data about the account and opportunity owner.|
 | **<span style="color:green">salesforce__daily_activity</span>**            |Each record represents a daily summary of the number of sales activities, for example tasks and opportunities closed. |
 | **<span style="color:green">salesforce__opportunity_line_item_enhanced</span>**            |Each record represents a line item belonging to a certain opportunity, with additional product details. |
-|
 <!--section-end-->
 
 # 🎯 How do I use the Coalesce pipeline?
@@ -92,9 +91,9 @@ Build Settings changes are required for both the `salesforce_dynamic_model ` and
 
 #### Storage Locations
 The pipeline equires four Storage Locations be created.
-- **TGT (Default Location)** - The final output of the pipeline is stored in the `TGT` location.  
+- **TGT** - The final output of the pipeline is stored in the `TGT` location.  
 - **SRC** - Source location where Fivetran replicated tables are locations
-- **STG** - Staging location where views are stored for staging Fivetran replicated data.  Simple things like universal filters could be applied at this layer.
+- **STG(Default Location)** - Staging location where views are stored for staging Fivetran replicated data.  Simple things like universal filters could be applied at this layer.
 
 #### Environments
 Environments must be configured in order to deploy pipeline to higher level environments (QA, UAT, Pre-Prod, Prod, etc.) based on how you are managing your environments.
@@ -125,7 +124,7 @@ The way the Salesforce pipeline is deployed and run differs between the two vers
 
 ## Dynamic Table DAG Specifics
 ### Pipeline LAG
-The pipeline is comprised of 16 sources, 34 Dynamic Tables and 1 Date Table.  The entire Dynamic Table DAG refresh is controlled using the `Downstream` option.  The Dynamic Table which controls the `LAG` of the entire pipeline is named `PIPELINE_SYNCED`.  The option delivered with the pipeline sets a target lag = 60 minutes for the entire pipeline.
+The pipeline is comprised of 16 sources, 35 Tables.  The entire Dynamic Table DAG refresh is controlled using the `Downstream` option.  The Dynamic Table which controls the `LAG` of the entire pipeline is named `PIPELINE_SYNCED`.  The option delivered with the pipeline sets a target lag = 60 minutes for the entire pipeline.
 
 The target lag of the pipeline can be changed by changing the `Lag Specification` of the PIPELINE_SYNCED node.
 
