@@ -30,7 +30,6 @@ You can also refer to the table below for a detailed view of all models material
 | **<span style="color:green">salesforce__opportunity_enhanced</span>**            | Each record represents an opportunity, enriched with related data about the account and opportunity owner.|
 | **<span style="color:green">salesforce__daily_activity</span>**            |Each record represents a daily summary of the number of sales activities, for example tasks and opportunities closed. |
 | **<span style="color:green">salesforce__opportunity_line_item_enhanced</span>**            |Each record represents a line item belonging to a certain opportunity, with additional product details. |
-|
 <!--section-end-->
 
 # 🎯 How do I use the Coalesce pipeline?
