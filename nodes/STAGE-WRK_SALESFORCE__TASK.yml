@@ -1,0 +1,79 @@
+fileVersion: 1
+id: 2c69bb66-40a6-42ca-86e9-d606f5d39b0b
+name: WRK_SALESFORCE__TASK
+operation:
+  config:
+    OverrideSQLCreate: false
+    clusterKey: false
+    downstreamOption: true
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: UNION
+    postSQL: null
+    preSQL: null
+    refresh_mode: AUTO
+    secureoption: false
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a0205fe-8c8d-4b59-815f-10f281d1135e
+          stepCounter: 2c69bb66-40a6-42ca-86e9-d606f5d39b0b
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f63ce2d4-bf82-4f75-989d-abcb1ca2492c
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: DATE_TRUNC('DAY',"STG_SALESFORCE__TASK"."ACTIVITY_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a274b28-bece-4bf0-b275-65b25e4e6fca
+          stepCounter: 2c69bb66-40a6-42ca-86e9-d606f5d39b0b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TASKS_COMPLETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d37b902d-589f-42ab-8ea1-8373dbeafa3e
+                stepCounter: a2bdfe78-384b-4067-8693-8fb57429b5a3
+            transform: COUNT("STG_SALESFORCE__TASK"."TASK_ID")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SALESFORCE__TASK: a2bdfe78-384b-4067-8693-8fb57429b5a3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__TASK
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'STG_SALESFORCE__TASK') }} "STG_SALESFORCE__TASK"
+            GROUP BY 1
+        name: WRK_SALESFORCE__TASK
+        noLinkRefs: []
+  name: WRK_SALESFORCE__TASK
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node

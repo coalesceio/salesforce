@@ -1,0 +1,96 @@
+fileVersion: 1
+id: 7fe83c28-69ea-45b3-8490-846b3068ad1f
+name: FIVETRAN_FORMULA
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: SOURCE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 686fedf6-22c1-4dbe-bc54-1fa1f072f80a
+          stepCounter: 7fe83c28-69ea-45b3-8490-846b3068ad1f
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: FIELD
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7970f8a-28d6-4cfa-ae8f-ad925d0e9632
+          stepCounter: 7fe83c28-69ea-45b3-8490-846b3068ad1f
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: OBJECT
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3a880ee-b5ef-4bb5-875e-ba56b414d55a
+          stepCounter: 7fe83c28-69ea-45b3-8490-846b3068ad1f
+        config: {}
+        dataType: VARCHAR(4096)
+        defaultValue: ""
+        description: ""
+        name: FORMULA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 118315f7-44b7-4e1d-9d79-6a35803c5cba
+          stepCounter: 7fe83c28-69ea-45b3-8490-846b3068ad1f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('SOURCE', 'FIVETRAN_FORMULA') }}
+  name: FIVETRAN_FORMULA
+  schema: ""
+  sqlType: Source
+  table: FIVETRAN_FORMULA
+  type: sourceInput
+  version: 1
+type: Node

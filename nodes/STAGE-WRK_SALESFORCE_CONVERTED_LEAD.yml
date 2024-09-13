@@ -1,0 +1,80 @@
+fileVersion: 1
+id: f16a43ba-7a81-442d-90ac-32ac88be129e
+name: WRK_SALESFORCE_CONVERTED_LEAD
+operation:
+  config:
+    OverrideSQLCreate: false
+    clusterKey: false
+    downstreamOption: true
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: UNION
+    postSQL: null
+    preSQL: null
+    refresh_mode: AUTO
+    secureoption: false
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ea6630de-fe23-49f8-b543-cc64ce7201f3
+          stepCounter: f16a43ba-7a81-442d-90ac-32ac88be129e
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CONVERTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4a50633-9145-4e66-a15b-e98446c38325
+                stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+            transform: DATE_TRUNC('DAY', "STG_SALESFORCE__LEAD"."CONVERTED_DATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f48517df-983c-4fed-aeb7-af7a10d4d1d6
+          stepCounter: f16a43ba-7a81-442d-90ac-32ac88be129e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LEADS_CONVERTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 94f689ca-b765-4c23-b333-8c75aebaec85
+                stepCounter: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+            transform: COUNT("STG_SALESFORCE__LEAD"."LEAD_ID")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SALESFORCE__LEAD: 537a4e24-d984-4ad6-b8c3-62aa91a44a41
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__LEAD
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'STG_SALESFORCE__LEAD') }} "STG_SALESFORCE__LEAD"
+            WHERE "IS_CONVERTED"
+            GROUP BY 1
+        name: WRK_SALESFORCE_CONVERTED_LEAD
+        noLinkRefs: []
+  name: WRK_SALESFORCE_CONVERTED_LEAD
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node

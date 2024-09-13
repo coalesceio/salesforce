@@ -1,0 +1,300 @@
+fileVersion: 1
+id: 3940ec9a-361a-4347-bfa7-e41439e47b58
+name: DT_WRK_SALESFORCE__OWNER_PERFORMANCE
+operation:
+  config:
+    clusterKey: false
+    clusterKeyConfig:
+      items:
+        - {}
+    clusterKeyConfigExpressions:
+      items:
+        - {}
+    clusterKeyExpressions: false
+    downstreamOption: false
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: UNION ALL
+    lagSpecification:
+      items:
+        - lagPeriod: Minutes
+          lagValue: "1"
+    postSQL: null
+    preSQL: null
+    refresh_mode: AUTO
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: TARGET
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c21fb2f3-2e64-47d2-ba8a-d0161b1ffaa3
+          stepCounter: 3940ec9a-361a-4347-bfa7-e41439e47b58
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SOURCE_NODE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'SALESFORCE__OWNER_PERFORMANCE'"
+          - columnReferences: []
+            transform: "'SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED'"
+          - columnReferences: []
+            transform: "'SALESFORCE__SALES_SNAPSHOT'"
+          - columnReferences: []
+            transform: "'SALESFORCE__CONTACT_ENHANCED'"
+          - columnReferences: []
+            transform: "'INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER'"
+          - columnReferences: []
+            transform: "'SALESFORCE__MANAGER_PERFORMANCE'"
+          - columnReferences: []
+            transform: "'STG_SALESFORCE__DEL'"
+          - columnReferences: []
+            transform: "'STG_SALESFORCE__TASK'"
+          - columnReferences: []
+            transform: "'STG_SALESFORCE__ACCOUNT_HISTORY'"
+          - columnReferences: []
+            transform: "'STG_SALESFORCE__CONTACT_HISTORY'"
+          - columnReferences: []
+            transform: "'STG_SALESFORCE__ORDER'"
+          - columnReferences: []
+            transform: "'STG_SALESFORCE__OPPORTUNITY_HISTORY'"
+          - columnReferences: []
+            transform: "'STG_SALESFORCE__EVENT'"
+          - columnReferences: []
+            transform: "'SALESFORCE__CONTACT_ENHANCED'"
+          - columnReferences: []
+            transform: "'SALESFORCE__DAILY_ACTIVITY'"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33d37ff7-316b-4f9e-aaa8-e0401132a6a8
+          stepCounter: 3940ec9a-361a-4347-bfa7-e41439e47b58
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALESFORCE__OWNER_PERFORMANCE: ed180e10-81ed-4165-972b-0cc8b7054ce0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OWNER_PERFORMANCE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALESFORCE__OWNER_PERFORMANCE') }} "SALESFORCE__OWNER_PERFORMANCE"
+        name: SALESFORCE__OWNER_PERFORMANCE
+        noLinkRefs: []
+      - aliases:
+          SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED: 514a40f7-2e1a-4b23-bc5b-755b42b0398e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED') }}
+        name: SALESFORCE__OPPORTUNITY_LINE_ITEM_ENHANCED
+        noLinkRefs: []
+      - aliases:
+          SALESFORCE__SALES_SNAPSHOT: be03d272-09ed-4a94-80b4-690c2d6cb64a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__SALES_SNAPSHOT
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALESFORCE__SALES_SNAPSHOT') }}
+        name: SALESFORCE__SALES_SNAPSHOT
+        noLinkRefs: []
+      - aliases:
+          SALESFORCE__CONTACT_ENHANCED: 173920aa-271d-498e-8416-08ffbe098cb1
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__CONTACT_ENHANCED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALESFORCE__CONTACT_ENHANCED') }}
+        name: SALESFORCE__CONTACT_ENHANCED
+        noLinkRefs: []
+      - aliases:
+          INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER: 211f903a-cf22-4612-88eb-7ae95a9705b4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER') }}
+        name: INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER
+        noLinkRefs: []
+      - aliases:
+          SALESFORCE__MANAGER_PERFORMANCE: 147047ce-bc24-4822-a128-952de3cff64d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__MANAGER_PERFORMANCE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALESFORCE__MANAGER_PERFORMANCE') }}
+        name: SALESFORCE__MANAGER_PERFORMANCE
+        noLinkRefs: []
+      - aliases:
+          STG_SALESFORCE__DEL: f3a9f75d-7105-41cc-99ba-12f6ef11a07a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__DEL
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__DEL') }}
+        name: STG_SALESFORCE__DEL
+        noLinkRefs: []
+      - aliases:
+          STG_SALESFORCE__TASK: a2bdfe78-384b-4067-8693-8fb57429b5a3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__TASK
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__TASK') }}
+        name: STG_SALESFORCE__TASK
+        noLinkRefs: []
+      - aliases:
+          STG_SALESFORCE__ACCOUNT_HISTORY: 9f163386-ae45-4de4-90c9-ed9293186e25
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__ACCOUNT_HISTORY
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__ACCOUNT_HISTORY') }}
+        name: STG_SALESFORCE__ACCOUNT_HISTORY
+        noLinkRefs: []
+      - aliases:
+          STG_SALESFORCE__CONTACT_HISTORY: bc1fe761-4971-40c9-8eb7-f0337b99deb4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__CONTACT_HISTORY
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__CONTACT_HISTORY') }}
+        name: STG_SALESFORCE__CONTACT_HISTORY
+        noLinkRefs: []
+      - aliases:
+          STG_SALESFORCE__ORDER: 404accf8-9a53-4ce0-a1ee-ce00dfee2066
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__ORDER
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__ORDER') }}
+        name: STG_SALESFORCE__ORDER
+        noLinkRefs: []
+      - aliases:
+          STG_SALESFORCE__OPPORTUNITY_HISTORY: 6b3af356-a6ab-44d3-a928-a501cc18fa3d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__OPPORTUNITY_HISTORY
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__OPPORTUNITY_HISTORY') }}
+        name: STG_SALESFORCE__OPPORTUNITY_HISTORY
+        noLinkRefs: []
+      - aliases:
+          STG_SALESFORCE__EVENT: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__EVENT
+        join:
+          joinCondition: FROM {{ ref('STAGE', 'STG_SALESFORCE__EVENT') }}
+        name: STG_SALESFORCE__EVENT
+        noLinkRefs: []
+      - aliases:
+          SALESFORCE__CONTACT_ENHANCED: 173920aa-271d-498e-8416-08ffbe098cb1
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__CONTACT_ENHANCED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALESFORCE__CONTACT_ENHANCED') }}
+        name: SALESFORCE__CONTACT_ENHANCED
+        noLinkRefs: []
+      - aliases:
+          SALESFORCE__DAILY_ACTIVITY: d490fbde-c2d4-41e4-be96-3ce1501f53ff
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__DAILY_ACTIVITY
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALESFORCE__DAILY_ACTIVITY') }}
+        name: SALESFORCE__DAILY_ACTIVITY
+        noLinkRefs: []
+  name: DT_WRK_SALESFORCE__OWNER_PERFORMANCE
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node

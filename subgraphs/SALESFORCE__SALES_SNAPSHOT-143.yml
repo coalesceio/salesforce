@@ -1,22 +1,18 @@
 fileVersion: 1
-id: "118"
-name: SALESFORCE__OWNER_PERFORMANCE
+id: "143"
+name: SALESFORCE__SALES_SNAPSHOT
 steps:
-  - 038bc459-e631-4ba0-90fc-801c2117e620
   - 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
   - 208f85fd-ee71-4ca8-be2a-00c90a54da98
-  - 211f903a-cf22-4612-88eb-7ae95a9705b4
   - 4dca8e3d-9df3-416f-90f6-a16613958618
   - 60a6783b-4c0d-4d4b-9833-cf8668313010
-  - 9760424d-6bf9-4ca3-b018-0b345d7e156d
   - 9f192f62-3010-404d-bf79-6dc6aef2fc1f
   - ae25e6ba-9bfc-4954-9a2f-97bc2673f015
   - b1ac8e2b-1823-4d30-9af4-3fa603280d59
+  - be03d272-09ed-4a94-80b4-690c2d6cb64a
   - c2a68e14-41e5-4716-a1cf-4acac057283c
   - ca5ea8f7-1a80-493b-bb71-3f071dde5034
   - d7430874-7d7b-4abf-8db3-7e367bbb2e71
-  - d7b6b842-30e0-4d86-af0d-e47207675903
   - e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
-  - ed180e10-81ed-4165-972b-0cc8b7054ce0
 type: Subgraph
 version: 1

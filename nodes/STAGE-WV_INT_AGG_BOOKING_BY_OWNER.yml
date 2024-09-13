@@ -1,0 +1,210 @@
+fileVersion: 1
+id: 038bc459-e631-4ba0-90fc-801c2117e620
+name: WV_INT_AGG_BOOKING_BY_OWNER
+operation:
+  config:
+    clusterKey: false
+    downstreamOption: true
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: UNION
+    postSQL: null
+    preSQL: null
+    refresh_mode: AUTO
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b63257ff-ac31-43ad-b952-a47881cc15b5
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The Id of the user who manages this owner.
+        name: B_MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49618e96-790d-404a-9320-c035a6bf98a9
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ab788ac-4ecd-4cc2-beb9-49b666a90051
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ID of the User who has been assigned to work this opportunity.
+        name: B_OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 62271b22-e1b3-472f-a980-5123472a2c61
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab0dda3a-a241-4606-a64c-f3d59f67898e
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The opportunity amount, if closed this month.
+        name: BOOKINGS_AMOUNT_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d41cc0b-c893-41cb-a5b7-26ccbc4964c2
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CLOSED_AMOUNT_THIS_MONTH"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3804c50f-81b9-4d19-9305-263215883b33
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The opportunity amount, if closed this quarter.
+        name: BOOKINGS_AMOUNT_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3afca50e-50b7-47e2-b586-4894355f9583
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CLOSED_AMOUNT_THIS_QUARTER"))
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a692200-b289-4f3e-9808-c3fd53acb1a3
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: TOTAL_NUMBER_BOOKINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(*)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9845010d-e034-4820-bf60-5494e5fbed1f
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: TOTAL_BOOKINGS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd5a3e6e-be83-49fa-bda3-8baf718a28b0
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: NUMBER(1,0)
+        description: The opportunity count, if closed this month.
+        name: BOOKINGS_COUNT_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6c606646-a152-4c48-ba40-7ad1235f447d
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CLOSED_COUNT_THIS_MONTH")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 698ec324-7dc7-4d68-a738-53ce3ed6d27c
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: NUMBER(1,0)
+        description: The opportunity count, if closed this quarter.
+        name: BOOKINGS_COUNT_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a662bad-75a5-4c16-8a4f-931a2cf39bfc
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CLOSED_COUNT_THIS_QUARTER")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d523531e-29ec-459f-923c-0127697b8db0
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Estimated total sale amount. For opportunities with products, the amount is the sum of the related products.
+        name: AVG_BOOKINGS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(AVG("SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999b7f7f-ca01-46ee-ad2f-4dd900217bdf
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Estimated total sale amount. For opportunities with products, the amount is the sum of the related products.
+        name: LARGEST_BOOKING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: MAX("SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d933ec40-100b-4f02-946a-616c4406af69
+          stepCounter: 038bc459-e631-4ba0-90fc-801c2117e620
+        config: {}
+        dataType: NUMBER(9,0)
+        description: The difference in days between the close day and the day the opportunity was created.
+        name: AVG_DAYS_TO_CLOSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e6a4832-e70c-44d1-aae7-b9aeaa13bb4a
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: AVG("SALESFORCE__OPPORTUNITY_ENHANCED"."DAYS_TO_CLOSE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALESFORCE__OPPORTUNITY_ENHANCED: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OPPORTUNITY_ENHANCED
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'SALESFORCE__OPPORTUNITY_ENHANCED') }} "SALESFORCE__OPPORTUNITY_ENHANCED"
+            WHERE STATUS = 'Won'
+            GROUP BY 
+                  B_MANAGER_ID,
+                  B_OWNER_ID
+        name: WV_INT_AGG_BOOKING_BY_OWNER
+        noLinkRefs: []
+  name: WV_INT_AGG_BOOKING_BY_OWNER
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node

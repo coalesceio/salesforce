@@ -1,0 +1,164 @@
+fileVersion: 1
+id: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+name: STG_SALESFORCE__USER_ROLE
+operation:
+  config:
+    clusterKey: false
+    downstreamOption: true
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    refresh_mode: AUTO
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: Represents a user role in your organization.
+  isMultisource: false
+  locationName: STAGE
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 458dbd0e-8da8-43c4-8433-295523217d34
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: BOOLEAN
+        description: True, if this field has been deleted
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4caa0ff8-ed52-466c-89f4-84a8209cd6b4
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18d3060d-628b-49e1-abfa-4fb8fdbd9751
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: The time at which fivetran last synced this record
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dcd59fce-37d2-4e8a-9df0-b776693edb3e
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: CAST("USER_ROLE"."_FIVETRAN_SYNCED" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5eee1853-74ec-4193-b287-200a16eab40f
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique name of the object in the API.
+        name: DEVELOPER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3069ff1-9221-42e0-94b9-5f84c676422f
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d0f4f6b-2844-45cf-a635-214f993a7aaa
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The unique, system-generated ID assigned during creation
+        name: USER_ROLE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbe5b073-5223-4274-a8d3-4c0828d3cc72
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed841079-16ae-4277-89a5-3431b01a00a4
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. Name of the role. Corresponds to Label on the user interface.
+        name: USER_ROLE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0dce57a-712a-44a0-a8a7-30fa5faac56f
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90293af5-71e1-4542-b22e-0795c044a1d7
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Required. The opportunity access level for the account owner.
+        name: OPPORTUNITY_ACCESS_FOR_ACCOUNT_OWNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f48202ed-3f3b-4d56-98ae-186a3bf7bd26
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5cb74732-3a7f-46dd-ad44-7bc823cc71b1
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The ID of the parent role.
+        name: PARENT_ROLE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b122b3a0-53de-4759-b0f6-90c9e1f4b900
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6a8c1d9-8919-4ce9-a1a6-4ab37ef1aee3
+          stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: Description of the forecast rollup.
+        name: ROLLUP_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fcbf1d80-45b6-4ebe-a4b9-3b2ca448d36d
+                stepCounter: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          USER_ROLE: e2e2f949-55bd-4b6b-b296-f3840b1e0e3b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: USER_ROLE
+        join:
+          joinCondition: |-
+            FROM {{ ref('SOURCE', 'USER_ROLE') }} USER_ROLE
+            WHERE COALESCE(CAST(NULL AS boolean),TRUE)
+        name: STG_SALESFORCE__USER_ROLE
+        noLinkRefs: []
+  name: STG_SALESFORCE__USER_ROLE
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node

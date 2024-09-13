@@ -1,0 +1,343 @@
+fileVersion: 1
+id: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+name: OPPORTUNITY_HISTORY
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: SOURCE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b533917b-e558-4522-b3b0-86c10888a630
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: VARCHAR(18)
+        defaultValue: ""
+        description: ""
+        name: ID
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c46261f4-0064-4e90-9775-45cc92ac5f2c
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: VARCHAR(18)
+        defaultValue: ""
+        description: ""
+        name: OPPORTUNITY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed12a277-3d17-4fbb-adda-847150b7533b
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: VARCHAR(18)
+        defaultValue: ""
+        description: ""
+        name: CREATED_BY_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5973e140-8085-4e59-ad39-a23b0894e04d
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2695bbad-e987-4fe5-8c81-1e4d1151fadc
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: VARCHAR(765)
+        defaultValue: ""
+        description: ""
+        name: STAGE_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 822fc70f-13e1-44c2-8fc6-151660760516
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: AMOUNT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f69254ba-119d-460e-ba4f-fd12e210a8d7
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: EXPECTED_REVENUE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4495c6ec-9562-43cc-a0df-de3fb912e44a
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: CLOSE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26cf67b9-424c-4a38-9d6e-44bdca8ba120
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: FLOAT
+        defaultValue: ""
+        description: ""
+        name: PROBABILITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57deffa9-7f8a-4e36-8106-c0950cc97b5e
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: VARCHAR(120)
+        defaultValue: ""
+        description: ""
+        name: FORECAST_CATEGORY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d54eb3c5-18e5-4a7e-a7bc-c468fe1889b3
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: VARCHAR(9)
+        defaultValue: ""
+        description: ""
+        name: CURRENCY_ISO_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c0e450e-7327-4061-bac1-63ed958400d9
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_MODSTAMP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad5dea0f-41e1-4a54-a526-be5114d38d4f
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_DELETED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: caf40cca-d5fc-4fb1-9aea-80260b53e033
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: PREV_AMOUNT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95ac229a-7d35-4ed8-bae2-c7fa280fb533
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: PREV_CLOSE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 181d20cf-6117-4764-b483-fe16f8a5be7e
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 622a387b-4263-40ec-8740-844d4c492888
+          stepCounter: 4e891ddd-c7f5-401c-b14a-ebe99e126a9f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('SOURCE', 'OPPORTUNITY_HISTORY') }}
+  name: OPPORTUNITY_HISTORY
+  schema: ""
+  sqlType: Source
+  table: OPPORTUNITY_HISTORY
+  type: sourceInput
+  version: 1
+type: Node

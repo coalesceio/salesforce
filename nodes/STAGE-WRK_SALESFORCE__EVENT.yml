@@ -1,0 +1,79 @@
+fileVersion: 1
+id: 12bebd98-814f-431e-871e-7106b77f7ea8
+name: WRK_SALESFORCE__EVENT
+operation:
+  config:
+    OverrideSQLCreate: false
+    clusterKey: false
+    downstreamOption: true
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: UNION
+    postSQL: null
+    preSQL: null
+    refresh_mode: AUTO
+    secureoption: false
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06237fb0-bb12-493d-bbbe-74be2989d419
+          stepCounter: 12bebd98-814f-431e-871e-7106b77f7ea8
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: ACTIVITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0c93cc58-2952-487e-a434-62401beda9bd
+                stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+            transform: COALESCE(DATE_TRUNC('DAY',"STG_SALESFORCE__EVENT"."ACTIVITY_DATE"),DATE_TRUNC('DAY',"STG_SALESFORCE__EVENT"."ACTIVITY_DATE_TIME"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49df24ac-a46c-488b-842b-d20def253aec
+          stepCounter: 12bebd98-814f-431e-871e-7106b77f7ea8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENTS_COMPLETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c8449b4-946a-4c44-aaed-cf2f0bed5ec4
+                stepCounter: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+            transform: COUNT("STG_SALESFORCE__EVENT"."EVENT_ID")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SALESFORCE__EVENT: 938cc760-82f8-46d3-a7e0-4dc7e6947db4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__EVENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'STG_SALESFORCE__EVENT') }} "STG_SALESFORCE__EVENT"
+            GROUP BY 1
+        name: WRK_SALESFORCE__EVENT
+        noLinkRefs: []
+  name: WRK_SALESFORCE__EVENT
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node

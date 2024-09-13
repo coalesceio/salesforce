@@ -1,0 +1,96 @@
+fileVersion: 1
+id: a84bf568-ed98-4763-9d8e-1720da26c698
+name: WRK_SALESFORCE__OPPORTUNITY_CREATED
+operation:
+  config:
+    OverrideSQLCreate: false
+    clusterKey: false
+    downstreamOption: true
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: UNION
+    postSQL: null
+    preSQL: null
+    refresh_mode: AUTO
+    secureoption: false
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93d7b72c-2b9c-4246-842f-29a1def352b6
+          stepCounter: a84bf568-ed98-4763-9d8e-1720da26c698
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5698a7e2-1fb9-4a49-9ba4-ee082bec4fc4
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6628fce8-82d0-43d7-a7fb-46f192365ff1
+          stepCounter: a84bf568-ed98-4763-9d8e-1720da26c698
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: OPPORTUNITIES_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b49e664-3eb1-437a-979e-5810d8ee334b
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: COUNT("WRK_SALESFORCE__OPPORTUNITY"."OPPORTUNITY_ID")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd9daeea-9975-441f-aa0b-a0c62304d8a9
+          stepCounter: a84bf568-ed98-4763-9d8e-1720da26c698
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: OPPORTUNITIES_CREATED_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 430788f0-ea9c-4f86-b4a2-f39faa29ad4c
+                stepCounter: 6dedba00-34ae-4ec4-8815-677612161d2c
+            transform: |2-
+                    ROUND(
+                      SUM("WRK_SALESFORCE__OPPORTUNITY"."AMOUNT")
+                    )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          WRK_SALESFORCE__OPPORTUNITY: 6dedba00-34ae-4ec4-8815-677612161d2c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: WRK_SALESFORCE__OPPORTUNITY
+        join:
+          joinCondition: |-
+            FROM {{ ref('STAGE', 'WRK_SALESFORCE__OPPORTUNITY') }} "WRK_SALESFORCE__OPPORTUNITY"
+            GROUP BY 1
+        name: WRK_SALESFORCE__OPPORTUNITY_CREATED
+        noLinkRefs: []
+  name: WRK_SALESFORCE__OPPORTUNITY_CREATED
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node

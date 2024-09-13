@@ -1,0 +1,252 @@
+fileVersion: 1
+id: d7b6b842-30e0-4d86-af0d-e47207675903
+name: WV_INT_AGG_PIPELINE_BY_OWNER
+operation:
+  config:
+    clusterKey: false
+    downstreamOption: true
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: UNION
+    postSQL: null
+    preSQL: null
+    refresh_mode: AUTO
+    secureoption: false
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: STAGE
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9eff9d70-6692-408c-b157-37105966c54f
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The Id of the user who manages this owner.
+        name: P_MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49618e96-790d-404a-9320-c035a6bf98a9
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2cb12f9-c099-471b-a620-6fd2306db8ac
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: |
+          ID of the User who has been assigned to work this opportunity.
+        name: P_OWNER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 62271b22-e1b3-472f-a980-5123472a2c61
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 088e8f04-37ff-4dbc-ba3a-fda5f328303e
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The opportunity amount, if created this month.
+        name: PIPELINE_CREATED_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bb016df7-d931-4c26-84c4-9dd15f6e755c
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_AMOUNT_THIS_MONTH"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c2c2615-1548-4c1a-b2c7-d6b84ccdd19c
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The opportunity amount, if created this quarter.
+        name: PIPELINE_CREATED_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81b9d852-4e9a-4ab6-b424-3459db79a954
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_AMOUNT_THIS_QUARTER"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cefa4832-50fa-4b4b-b3a3-65c4fe6c08c8
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: PIPELINE_CREATED_FORECAST_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_AMOUNT_THIS_MONTH" * PROBABILITY))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04ca9532-9285-4511-beee-f7c2e207e712
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: PIPELINE_CREATED_FORECAST_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_AMOUNT_THIS_QUARTER" *  "SALESFORCE__OPPORTUNITY_ENHANCED"."PROBABILITY"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 429641a4-b1b8-4eec-abc2-abcef3ed2395
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(1,0)
+        description: The opportunity count, if created this month.
+        name: PIPELINE_COUNT_CREATED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90ba8062-e935-4c74-83b9-12f7052751fe
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_COUNT_THIS_MONTH")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f57e637c-157e-429d-9889-165472bf8faf
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(1,0)
+        description: The opportunity count, if created this quarter.
+        name: PIPELINE_COUNT_CREATED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90ba8062-e935-4c74-83b9-12f7052751fe
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."CREATED_COUNT_THIS_QUARTER")
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37aa402e-d065-4b0f-8601-73359df3ee3f
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: INT
+        defaultValue: ""
+        description: ""
+        name: TOTAL_NUMBER_PIPELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(*)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93f382c9-9b5e-4937-9ded-90f281d69301
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: TOTAL_PIPELINE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 562a2951-ae92-489b-bcc8-4cefc18504d8
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(28,6)
+        description: ""
+        name: TOTAL_PIPELINE_FORECAST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(SUM("SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT" * SALESFORCE__OPPORTUNITY_ENHANCED.PROBABILITY))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5bbc83b2-47c4-4d3e-aeac-98b6a4f9f2c1
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Estimated total sale amount. For opportunities with products, the amount is the sum of the related products.
+        name: AVG_PIPELINE_OPP_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: ROUND(AVG("SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ae18549-7fe2-4fa6-b3fc-da466092ca5f
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(28,6)
+        description: Estimated total sale amount. For opportunities with products, the amount is the sum of the related products.
+        name: LARGEST_DEAL_IN_PIPELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 933f75bb-6d0c-446b-ac0c-a55888145463
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: MAX("SALESFORCE__OPPORTUNITY_ENHANCED"."AMOUNT")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b065fa2-f9ca-4faa-971c-4c004d7986ba
+          stepCounter: d7b6b842-30e0-4d86-af0d-e47207675903
+        config: {}
+        dataType: NUMBER(9,0)
+        description: The difference in days between the current day and the day the opportunity was created
+        name: AVG_DAYS_OPEN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 95363233-0753-473a-82d5-c46d93da3862
+                stepCounter: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+            transform: AVG("SALESFORCE__OPPORTUNITY_ENHANCED"."DAYS_SINCE_CREATED")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SALESFORCE__OPPORTUNITY_ENHANCED: ca5ea8f7-1a80-493b-bb71-3f071dde5034
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALESFORCE__OPPORTUNITY_ENHANCED
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'SALESFORCE__OPPORTUNITY_ENHANCED') }} "SALESFORCE__OPPORTUNITY_ENHANCED"
+            WHERE STATUS = 'Pipeline'
+            GROUP BY 1, 2
+        name: WV_INT_AGG_PIPELINE_BY_OWNER
+        noLinkRefs: []
+  name: WV_INT_AGG_PIPELINE_BY_OWNER
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node

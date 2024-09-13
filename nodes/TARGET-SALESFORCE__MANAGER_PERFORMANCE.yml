@@ -1,0 +1,551 @@
+fileVersion: 1
+id: 147047ce-bc24-4822-a128-952de3cff64d
+name: SALESFORCE__MANAGER_PERFORMANCE
+operation:
+  config:
+    clusterKey: false
+    downstreamOption: true
+    groupByAll: false
+    initialize: ON_CREATE
+    insertStrategy: INSERT
+    orderby: false
+    postSQL: ""
+    preSQL: ""
+    refresh_mode: AUTO
+    selectDistinct: false
+    testsEnabled: true
+    truncateBefore: true
+    warehouseName: "{{ parameters.SalesforcePipelineWarehouse }}"
+  database: ""
+  deployEnabled: true
+  description: Each record represents a manager, enriched with data about their teams pipeline, bookings, loses, and win percentages.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: dynamic table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 399fb1f3-07fb-47ed-a4e9-7cea1718f30a
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The user id of the manager.
+        name: MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32844e0a-9292-48e3-89bc-5aacf3891355
+                stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+            transform: COALESCE("STG_SALESFORCE__USER"."USER_ID", 'No Manager Assigned')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9cbbd5ef-eeec-4c38-a483-da1a54907236
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The name of the opportunity owner's manager.
+        name: MANAGER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c853400-98d0-464c-a800-fcf92e89c6c5
+                stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+            transform: COALESCE("STG_SALESFORCE__USER"."USER_NAME", 'No Manager Assigned')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df20b48f-8568-47b3-9189-fee94476e646
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The city location of the opportunity owner's manager.
+        name: MANAGER_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b92d010-bf79-48a7-aef7-55d075346e6e
+                stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 40ba3c4f-0c1e-42b4-9150-d88eb39ccebb
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The state location of the opportunity owner's manager.
+        name: MANAGER_STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c50fe86-8510-430c-94b8-62f17613f594
+                stepCounter: 4dca8e3d-9df3-416f-90f6-a16613958618
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 921a44fb-b722-4f79-a1c4-d99c2b0b32c4
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: The position role of the opportunity owner's manager.
+        name: MANAGER_POSITION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed841079-16ae-4277-89a5-3431b01a00a4
+                stepCounter: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 807e5343-ddfb-49fa-a664-fc0f3fe0b76d
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(18,0)
+        description: The number of opportunity owners who report to this manager.
+        name: NUMBER_OF_DIRECT_REPORTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2111c86-2352-42b7-8133-8791f129c7f3
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COUNT(DISTINCT OWNER_ID)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47b23e6f-6d2f-46e1-9f3b-42b0a893b731
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if closed this month and status is won.
+        name: BOOKINGS_AMOUNT_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc8fe7d6-e3e5-4ac2-88bb-4823e2cca87a
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("BOOKINGS_AMOUNT_CLOSED_THIS_MONTH"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2709a09e-0b7b-4fd1-9cda-2aee54b050a2
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if closed this quarter and status is won.
+        name: BOOKINGS_AMOUNT_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e40368f-2d8b-4367-8729-d837f0cfd29f
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."BOOKINGS_AMOUNT_CLOSED_THIS_QUARTER"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86509dec-f66f-46d1-9a7a-96ab37cae467
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(30,0)
+        description: The opportunity count, if status is won.
+        name: TOTAL_NUMBER_BOOKINGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7dc06e4f-68f4-4123-a9b0-ca63074080b9
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."TOTAL_NUMBER_BOOKINGS"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ad9c8fb-f20e-4b13-bf0a-be40881ac4b3
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if status is won.
+        name: TOTAL_BOOKINGS_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fadd6ae6-10f5-4b65-90e8-7de3e92bb2fb
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."TOTAL_BOOKINGS_AMOUNT"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: db3f5f8e-e372-4270-84a2-f83dba72e242
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(25,0)
+        description: The opportunity count, if closed this month and status is won.
+        name: BOOKINGS_COUNT_CLOSED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0f7df24-dfdd-4a72-a7ff-f4298ba93b22
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."BOOKINGS_COUNT_CLOSED_THIS_MONTH"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ec89a1d-7497-42f5-8ea2-a2659677b89d
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(25,0)
+        description: The opportunity count, if closed this quarter and status is won.
+        name: BOOKINGS_COUNT_CLOSED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3dd5c672-7306-4719-823a-2ce4cd09db52
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."BOOKINGS_COUNT_CLOSED_THIS_QUARTER"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44112181-c9ff-4164-8f14-9777202ade85
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The largest amount associated with a single opportunity.
+        name: LARGEST_BOOKING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 159029ad-7911-46a3-b50e-8beaa3617310
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(MAX("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."LARGEST_BOOKING"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e26276a-4ed9-410c-8fd4-e961e848eef1
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if closed this month and status is lost.
+        name: LOST_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d210669-3624-4084-91e9-0a3dd97c9cc3
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."LOST_AMOUNT_THIS_MONTH"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01dcdb1b-0965-4d6a-a261-1ca50c42e5ec
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if closed this quarter and status is lost.
+        name: LOST_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2cc5c8c-b133-43da-bfcf-b525cce05689
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."LOST_AMOUNT_THIS_QUARTER"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84dab094-1d84-44e8-9e3c-bdaa301dee95
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(30,0)
+        description: The opportunity count, if status is lost.
+        name: TOTAL_NUMBER_LOST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82ffd4b6-838e-40d5-9c41-6bf31ac62cba
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."TOTAL_NUMBER_LOST"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e9a1164-227a-4a4b-a0fb-5b0d7cefd0cf
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if status is lost.
+        name: TOTAL_LOST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ca87658-4903-4ff8-ab89-47024829ef70
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."TOTAL_LOST_AMOUNT"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d6b7c13-4810-4a99-945b-2a1a4b8ed9ad
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(25,0)
+        description: The opportunity count, if closed this month and status is lost.
+        name: LOST_COUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5bea62d-387c-4396-b458-4e28779929cf
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."LOST_COUNT_THIS_MONTH"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c647ba4c-8596-49fd-b3bf-a600e45571d0
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(25,0)
+        description: The opportunity count, if closed this quarter and status is lost.
+        name: LOST_COUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be0ec2e4-1474-4fb0-b52b-86ce4d78344e
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."LOST_COUNT_THIS_QUARTER"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73f51a62-cd2e-442f-9b95-fce3d0fdc3a1
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if closed this month and status is pipeline.
+        name: PIPELINE_CREATED_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 61f1f27d-c9ed-4c10-9d2e-bfdce0dd6bc3
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."PIPELINE_CREATED_AMOUNT_THIS_MONTH"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d23e3eb0-a370-4c44-9d15-a4f3839611bb
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if closed this quarter and status is pipeline.
+        name: PIPELINE_CREATED_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63e12845-35d3-4672-96e6-41d2dd8ff786
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."PIPELINE_CREATED_AMOUNT_THIS_QUARTER"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f4f46a9-deaa-45b3-a57d-59481a499edf
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: FLOAT
+        description: The opportunity amount mulitplied by the forecast percentage, if closed this month and status is pipeline.
+        name: PIPELINE_CREATED_FORECAST_AMOUNT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a042290f-90cf-4f18-a483-f51788430523
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."PIPELINE_CREATED_FORECAST_AMOUNT_THIS_MONTH"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f263651e-cbb6-4e93-abf7-9629f8274f66
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: FLOAT
+        description: The opportunity amount mulitplied by the forecast percentage, if closed this quarter and status is pipeline.
+        name: PIPELINE_CREATED_FORECAST_AMOUNT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5912e7d2-9133-44a3-bf08-0afc59be7969
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."PIPELINE_CREATED_FORECAST_AMOUNT_THIS_QUARTER"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84400e87-f330-475b-b364-0c067a39f7fc
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(25,0)
+        description: The opportunity count, if closed this month and status is pipeline.
+        name: PIPELINE_COUNT_CREATED_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dfc639d9-ba3c-4efb-9a03-bedbc73b9cc2
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."PIPELINE_COUNT_CREATED_THIS_MONTH"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 242c3e9c-eb15-46c8-bfaf-8cd736675792
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(25,0)
+        description: The opportunity count, if closed this quarter and status is pipeline.
+        name: PIPELINE_COUNT_CREATED_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 855e1707-ddea-46dc-b0ad-c2b83e3a0b52
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."PIPELINE_COUNT_CREATED_THIS_QUARTER"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49bb499a-a95f-4897-bba8-c8ec5d352892
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(30,0)
+        description: The opportunity count, if status is pipeline.
+        name: TOTAL_NUMBER_PIPELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6f65e78-7a97-45fa-abfb-1b705c4aa84c
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."TOTAL_NUMBER_PIPELINE"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 415defee-ea5c-43d8-b7a3-728d9c6e3ffc
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: The opportunity amount, if status is pipeline.
+        name: TOTAL_PIPELINE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e218dd71-805b-4510-ac8e-73a8da67af41
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."TOTAL_PIPELINE_AMOUNT"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c5327e57-351c-4d0e-b2cb-5ecf990e1769
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: FLOAT
+        description: The opportunity amount mulitplied by the forecast percentage, if status is pipeline.
+        name: TOTAL_PIPELINE_FORECAST_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ce67220-6181-497c-8bc4-57d44697c6ae
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(SUM("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."TOTAL_PIPELINE_FORECAST_AMOUNT"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44206282-c9fb-4ceb-8cde-a9204bdb3ebe
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(28,6)
+        description: The largest amount associated with a single opportunity in the current pipeline.
+        name: LARGEST_DEAL_IN_PIPELINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04fe329c-0ac1-4ab5-a607-009a35cf3057
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: COALESCE(MAX("INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"."LARGEST_DEAL_IN_PIPELINE"), 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8dfab64b-a9bd-4d53-a6dd-42535fa45187
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: The booking amount closed this month, divided by the sum of the booking amount closed this month and the lost amount this month.
+        name: WIN_PERCENT_THIS_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc8fe7d6-e3e5-4ac2-88bb-4823e2cca87a
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: 6d210669-3624-4084-91e9-0a3dd97c9cc3
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: fc8fe7d6-e3e5-4ac2-88bb-4823e2cca87a
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: fc8fe7d6-e3e5-4ac2-88bb-4823e2cca87a
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: 6d210669-3624-4084-91e9-0a3dd97c9cc3
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: |2-
+                  ROUND(CASE 
+                      WHEN SUM(BOOKINGS_AMOUNT_CLOSED_THIS_MONTH + LOST_AMOUNT_THIS_MONTH) > 0 THEN
+                      SUM(BOOKINGS_AMOUNT_CLOSED_THIS_MONTH) / SUM(BOOKINGS_AMOUNT_CLOSED_THIS_MONTH + LOST_AMOUNT_THIS_MONTH) * 100
+                      ELSE 0
+                  END, 2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b68fbb8-2cd0-4193-b491-289315b3d62d
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: The booking amount closed this quarter, divided by the sum of the booking amount closed this quarter and the lost amount this quarter.
+        name: WIN_PERCENT_THIS_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e40368f-2d8b-4367-8729-d837f0cfd29f
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: d2cc5c8c-b133-43da-bfcf-b525cce05689
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: 2e40368f-2d8b-4367-8729-d837f0cfd29f
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: 2e40368f-2d8b-4367-8729-d837f0cfd29f
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: d2cc5c8c-b133-43da-bfcf-b525cce05689
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: |2-
+                  ROUND(CASE
+                      WHEN SUM(BOOKINGS_AMOUNT_CLOSED_THIS_QUARTER + LOST_AMOUNT_THIS_QUARTER) > 0 THEN
+                      SUM(BOOKINGS_AMOUNT_CLOSED_THIS_QUARTER) / SUM(BOOKINGS_AMOUNT_CLOSED_THIS_QUARTER + LOST_AMOUNT_THIS_QUARTER) * 100
+                      ELSE 0
+                  END, 2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64e48dc3-8830-4757-b85d-acdc5babe1e9
+          stepCounter: 147047ce-bc24-4822-a128-952de3cff64d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: The booking amount closed, divided by the sum of the booking amount and the lost amount..
+        name: TOTAL_WIN_PERCENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fadd6ae6-10f5-4b65-90e8-7de3e92bb2fb
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: 5ca87658-4903-4ff8-ab89-47024829ef70
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: fadd6ae6-10f5-4b65-90e8-7de3e92bb2fb
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: fadd6ae6-10f5-4b65-90e8-7de3e92bb2fb
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+              - columnCounter: 5ca87658-4903-4ff8-ab89-47024829ef70
+                stepCounter: 211f903a-cf22-4612-88eb-7ae95a9705b4
+            transform: |2-
+                  ROUND(CASE
+                      WHEN SUM(TOTAL_BOOKINGS_AMOUNT + TOTAL_LOST_AMOUNT) > 0 THEN
+                      SUM(TOTAL_BOOKINGS_AMOUNT) / SUM(TOTAL_BOOKINGS_AMOUNT + TOTAL_LOST_AMOUNT) * 100
+                      ELSE 0
+                  END, 2)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER: 211f903a-cf22-4612-88eb-7ae95a9705b4
+          STG_SALESFORCE__USER: 4dca8e3d-9df3-416f-90f6-a16613958618
+          STG_SALESFORCE__USER_ROLE: 1b5f1bb9-9a00-4e38-95b7-27debe82c8b0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: STAGE
+            nodeName: INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__USER
+          - locationName: STAGE
+            nodeName: STG_SALESFORCE__USER_ROLE
+        join:
+          joinCondition: |
+            FROM {{ ref('STAGE', 'INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER') }} "INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER"
+            LEFT JOIN {{ ref('STAGE', 'STG_SALESFORCE__USER') }} "STG_SALESFORCE__USER"
+              ON STG_SALESFORCE__USER."USER_ID" = INT_SALESFORCE__OPPORTUNITY_AGGREGATION_BY_OWNER."MANAGER_ID"
+            LEFT JOIN {{ ref('STAGE', 'STG_SALESFORCE__USER_ROLE') }} "STG_SALESFORCE__USER_ROLE"
+              ON "STG_SALESFORCE__USER"."USER_ROLE_ID" = STG_SALESFORCE__USER_ROLE."USER_ROLE_ID"
+              GROUP BY 1, 2, 3, 4, 5
+              HAVING COUNT(DISTINCT OWNER_ID) > 0
+        name: SALESFORCE__MANAGER_PERFORMANCE
+        noLinkRefs: []
+  name: SALESFORCE__MANAGER_PERFORMANCE
+  overrideSQL: false
+  schema: ""
+  sqlType: Dynamic:::156
+  type: sql
+  version: 1
+type: Node
