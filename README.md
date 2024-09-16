@@ -45,11 +45,8 @@ To use this Coalesce pipeline, you must have the following:
 
 ## Step 2: Import the coalesceio Salesforce repository
 1. In Github select create a new repository and select `Import a repository`.
-
 2. The URL for the Salesforce repository is [Salesforce ](https://github.com/coalesceio/salesforce.git).  This is a Public repository so no credentials are required.
-
 3. Select an owner and give your repository a name.
-
 4. After the import is complete you will see two branches available:
 - **salesforce_dynamic_model** - This is an entire pipeline of Dynamic Tables to manage the Salesforce pipeline.
 - **salesforce_incremental** - This is a pipeline built with an incremental node that loads the incremental data.
@@ -58,25 +55,15 @@ Either branch can be selected when setting up a Workspace which will be describe
 
 ## Step 3: Set up a Project / Workspace in Coalesce
 1. After the Git repo has been imported follow the Coalesce [documentation](https://docs.coalesce.io/docs/projects#create-a-new-project) to create a new project.  Initially, choose the option `Skip and Create` in the window for `Setup Version Control`.  We will connect to the Git repository after creating a Workspace.
-
 2. Once the Project has been created select `Create Workspace`.  Enter a name and meaninful desription based on the Git branch you want to start from, either Dynamic Table or full load based.
-
 3. At this point we are going to set up version control.  Select `Project Settings` and in the [Git Repository](https://docs.coalesce.io/docs/changing-a-git-repository-in-coalesce) section enter the URL of the repository you imported into your Git account as the Git Repository URL.
-
 4. Save the `Project Settings`.
-
 5. If you have enabled security for your Git repo, [Configure Git Account](https://docs.coalesce.io/docs/set-up-your-git-integration#add-through-the-project-dashboard).
-
-6 After configuring the Git repo select `Launch` to launch the Workspace so we can attach it to a Git branch.
-
+6. After configuring the Git repo select `Launch` to launch the Workspace so we can attach it to a Git branch.
 7. A Workspace can be attached to a branch by either selecting the `Git` modal or selecting `git branch` from the Workspace warning message `"Finish setting up version control for this workspace and avoid losing any work. Attach this workspace to a git branch"`.
-
 8. After the `Attach Workspace to Branch` opens select the desired branch - **salesforce_dynamic_model** or **salesforce_incremental** to attach and `Attach` it.
-
 9. Click on the `Git` modal, navigate to the `Branches` tab and select the [Branch Action](https://docs.coalesce.io/docs/git-branches#branch-actions) `Force Checkout` to populate the workspace with the latest Git commit.
-
 10. This will overwrite any uncommitted work in the Workspace, which is what we want, so you will be required to confirm the Force Checkout by typing **FORCE** in the screen.
-
 11. At this point the DAG objects should appear in your Workspace with errors.  Some workspace configuration is required to fix these errors.
 
 ## Step 4: Workspace Configuration
